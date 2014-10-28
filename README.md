@@ -1,4 +1,5 @@
 simabes
 =======
-
-Sistem Informasi Manajemen bengkel Sederhana (Simple Management Information Systems Repair Shop)
+Sistem Informasi Manajemen Bengkel Sederhana
+--------------------------------------------
+Simple Garage Informatic System
