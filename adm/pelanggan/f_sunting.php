@@ -8,7 +8,7 @@ $plg = new pelanggan();
 	$log_tipe = "Staff";
 	$pengguna=$_SESSION['nama_asli'];
 	$log_lokasi=$lokasi;
-	$log_pesan="A:4:Menyunting data pelangga, ID pelanggan ($id_plg)";
+	$log_pesan="A:4:Menyunting data pelanggan, ID pelanggan ($id_plg)";
 	$log_waktu = date("Y-m-d H:i:s");
 	$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
 
@@ -17,7 +17,12 @@ echo'
 
 <div class="konten">
 	<div class="lokasi"><label name="lokasi">'.$lokasi.'</label></div>
-	<form class="form1" action="?mod=f_pelanggan"  method="post" enctype="multipart/form-data"  name="sunting-plg" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" onsubmit="return validasi()">
+	<div class="alat">
+	<td colspan="3" rowspan="1"><input name="perbaharui" type="submit" value="Perbaharui" class="perbaharui" id="kiri">
+	<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="javascript:history.back()">
+	<input name="lokasi" type="hidden" value="'. $lokasi.'"></td>
+</div>
 <table  border="0" cellpadding="2" cellspacing="0">
   	<tbody>
     	<tr>
@@ -80,11 +85,6 @@ echo'
 		</tr>
   </tbody>
 </table>
-<div class="alat">
-	<td colspan="3" rowspan="1"><input name="perbaharui" type="submit" value="Perbaharui" class="perbaharui" id="kiri">
-	<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="javascript:history.back()">
-	<input name="lokasi" type="hidden" value="'. $lokasi.'"></td>
-</div>
 </form>
 </div>
 

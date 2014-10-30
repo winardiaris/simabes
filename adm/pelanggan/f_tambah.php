@@ -7,8 +7,8 @@ $hari_ini		=date("Y-m-d");
 $berlaku 		=date('Y-m-d', strtotime("+1 year"));
 	
 
-$a=date("ym");
 // ----- awal kode otomatis ----- //
+$a=date("ym");
 $qry = "SELECT max(id_plg) as maxID FROM dt_pelanggan WHERE id_plg LIKE '$a%' ORDER by id_plg ";
 
 $hasil = mysql_query($qry);
@@ -22,10 +22,10 @@ $newID = $a . sprintf("%04s", $noUrut);
 echo'
 <div class="konten">
 	<div class="lokasi"><label name="lokasi">'.$lokasi.'</label></div>
-<form action="?mod='.$_GET['mod'].'&h='.$_GET['h'] .'"  method="post" enctype="multipart/form-data"  name="form1" class="form1" >
+<form action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" class="form1" onsubmit="return validasi()">
 <div class="alat">
 	<input name="lokasi" type="hidden" value="'.$lokasi.'">
-	<input name="simpan" type="button" value="Simpan" class="simpan" id="kiri" onClick="validasi();">
+	<input name="simpan" type="submit" value="Simpan" class="simpan" id="kiri" >
 	<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="javascript:history.back()">
 </div>
 <table cellpadding="5" cellspacing="0" border="0" >
@@ -41,55 +41,4 @@ echo'
 	<tr><td><label>Ulang Kata Sandi </label></td><td>:</td><td><input type="password" maxlength="50" size="50" name="ulang_kt_sandi" class="text" placeholder="Default : simabes"></td></tr>
 </table>
 </form></div>';
-
-
-
-
-
-//simpan
-if(isset($_POST['id_plg'])){
-	$id_plg			=$_POST['id_plg'];
-	$nm_plg			=$_POST['nm_plg'];
-	$tgl_registrasi	=$_POST['tgl_registrasi'];
-	$masa_berlaku	=$_POST['masa_berlaku'];
-	$almt_plg		=$_POST['almt_plg'];
-	$telp_plg		=$_POST['telp_plg'];
-	$jns_kelamin	=$_POST['jns_kelamin'];
-	$kt_sandi		=$_POST['kt_sandi'];
-	$ulang_kt_sandi	=$_POST['ulang_kt_sandi'];
-	$wkt_ubah		=date("Y-m-d H:i:s");
-	$berlaku 		=date('Y-m-d', strtotime("+1 year"));
-
-
-		if(!empty($_FILES["photo_plg"]["tmp_name"])){
-		$namafolder="pelanggan/photo/";
-		$jenis_gambar=$_FILES['photo_plg']['type'];
-			if($jenis_gambar=="image/jpeg" || $jenis_gambar=="image/jpg" || $jenis_gambar=="image/gif"  || $jenis_gambar=="image/png"){
-				if($_FILES["photo_plg"]["size"] < 512000){
-					$namafile = md5($nm_plg.$id_plg);
-					$photo_plg = $namafolder.$namafile.".".end(explode(".",$_FILES["photo_plg"]["name"]));
-					move_uploaded_file($_FILES["photo_plg"]["tmp_name"],$photo_plg);
-				}
-				else{echo "<script type='text/javascript'> alert('ukuran gambar terlalu besar');history.back();</script>";	return false;}
-			}
-			else{echo "<script type='text/javascript'> alert('jenis Gambar yang anda kirim salah. Harus .jpg .gif .png');history.back();</script>";return false;}
-		}
-		else{$photo_plg="pelanggan/photo/default.png";}
-		
-		if (empty($kt_sandi) && empty($ulang_kt_sandi)){$kt_sandi = "simabes";}
-
-		
-		//simpan
-		$plg->simpan($id_plg,$nm_plg,$tgl_registrasi,$masa_berlaku,$almt_plg,$telp_plg,$jns_kelamin,$photo_plg,$wkt_ubah,$kt_sandi);
-		//log
-		$log_tipe = "Staff";
-		$pengguna=$_SESSION['nama_asli'];
-		$log_lokasi=$_POST['lokasi'];
-		$log_pesan="A:1:Berhasil menambahkan pelanggan ID pelanggan ($id_plg)";
-		$log_waktu = date("Y-m-d H:i:s");
-		$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		
-		echo "<script type='text/javascript'>window.location='?mod=pelanggan';</script>";
-	
-}
 ?>

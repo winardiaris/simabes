@@ -15,8 +15,8 @@ class pelanggan{
 				VALUES 
 				('','".md5($id_plg)."','$nm_plg','2','$photo_plg','".md5($kt_sandi)."','','$wkt_ubah')";
 				
-		mysql_query($qry) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
-		mysql_query($qry2)or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
+		mysql_query($qry) or die(mysql_error());
+		mysql_query($qry2)or die(mysql_error());
 	}
 	
 	//tampil
@@ -73,8 +73,8 @@ class pelanggan{
 		$qry="UPDATE dt_pelanggan SET nm_plg='$nm_plg',tgl_registrasi='$tgl_registrasi', masa_berlaku='$masa_berlaku', almt_plg='$almt_plg',telp_plg='$telp_plg',jns_kelamin='$jns_kelamin', wkt_ubah='$wkt_ubah' WHERE id_plg='$id_plg' LIMIT 1";
 		$qry2=" UPDATE dt_pengguna SET nm_asli='$nm_plg',wkt_ubah='$wkt_ubah' WHERE nm_pengguna='".md5($id_plg)."'";
 		
-		mysql_query($qry) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
-		mysql_query($qry2) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
+		mysql_query($qry) or die(mysql_error());
+		mysql_query($qry2) or die(mysql_error());
 		
 	}
 	

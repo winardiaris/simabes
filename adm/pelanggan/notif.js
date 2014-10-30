@@ -15,10 +15,10 @@ var ulang_kt_sandi = form1.ulang_kt_sandi.value;
 
 		
 toastr.options = {"closeButton": true,"debug": false,"positionClass": "toast-top-right","onclick": null,"showDuration": "300","hideDuration": "1000","timeOut": "3000","extendedTimeOut": "1000","showEasing": "swing","hideEasing": "linear","showMethod": "fadeIn","hideMethod": "fadeOut"}
-if (nm_plg == ""){form.nm_plg.focus();toastr.warning("Isikan nama pelanggan !", "SIMaBeS");}
-else if (almt_plg == ""){form.almt_plg.focus();toastr.warning("Isikan alamat pelanggan !", "SIMaBeS");}
-else if (telp_plg == ""){form.telp_plg.focus();toastr.warning("Isikan No. telepon pelanggan !", "SIMaBeS");}
-else if( ulang_kt_sandi != kt_sandi){form.kt_sandi.focus();toastr.warning("Kata sandi tidak sesuai !", "SIMaBeS");}
-else{toastr.success("Data berhasil disimpan");setTimeout(function(){document.form1.submit(); },2000);}
+if (nm_plg == ""){form.nm_plg.focus();toastr.warning("Isikan nama pelanggan !", "SIMaBeS");return false;}
+else if (almt_plg == ""){form.almt_plg.focus();toastr.warning("Isikan alamat pelanggan !", "SIMaBeS");return false;}
+else if (telp_plg == ""){form.telp_plg.focus();toastr.warning("Isikan No. telepon pelanggan !", "SIMaBeS");return false;}
+else if( ulang_kt_sandi != kt_sandi){form.kt_sandi.focus();toastr.warning("Kata sandi tidak sesuai !", "SIMaBeS");return false;}
+else{toastr.success("Data berhasil disimpan");return true;}
 }
 </script>

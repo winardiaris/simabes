@@ -5,6 +5,10 @@
 	$h = $_GET['h'];	
 	switch($h){
 		
+		case "aksi" :
+		$view = "aksi.php";
+		break;
+		
 		case "tambah" :
 		$view = "f_tambah.php";
 		break;
