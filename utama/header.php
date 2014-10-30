@@ -10,7 +10,7 @@
 echo "
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head>
-	<title>$aplikasi</title>
+	<title>$aplikasi | Daily Build</title>
 	<link rel='stylesheet' type='text/css' href='styler/utama.css'>
 	<link rel='shortcut icon' href='icon.ico' />
 	<script type='text/javascript' src='styler/iframe.js'></script>
