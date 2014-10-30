@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="mail2.svg">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="713"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="15.585449"
+     inkscape:cx="9.0481207"
+     inkscape:cy="16"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <rect
+     style="opacity:0;fill:#ff0000;fill-opacity:1;stroke:none"
+     id="rect2987"
+     width="32"
+     height="32"
+     x="0"
+     y="0" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path2989"
+     d="M 4.8034388,6.9995372 C 4.3638373,7.0450122 3.9962397,7.4580868 4.0000291,7.9014778 l 0,16.2008342 c 0,0.469919 0.4282323,0.898151 0.8981512,0.898151 l 22.2036687,0 C 27.571768,25.000463 28,24.572231 28,24.102312 L 28,7.9014778 C 28,7.4315589 27.571768,6.9995372 27.101849,6.9995372 l -22.2036687,0 c -0.030317,0 -0.064424,0 -0.094742,0 z m 2.1942184,1.5007078 18.0009258,0 -8.966356,6.726662 z M 5.5007379,9.2392306 15.475146,16.735196 c 0.303173,0.216011 0.746564,0.216011 1.049738,0 l 9.970618,-7.4959654 0,14.2946304 -20.9947641,0 z"
+     style="fill:#ff0000" />
+</svg>

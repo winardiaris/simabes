@@ -1,0 +1,25 @@
+body{
+	font-family:Arial;
+	font-size: 10pt;
+	margin: 10px;
+	padding: 0;
+}
+.mu{
+	float:left;
+	margin-left: 5px;
+}
+table{
+	border:1px solid #000;
+}
+th,tr,td{
+	border-bottom: 1px dotted #000;
+	border-right:  1px dotted #000;
+	min-height:20px;
+}
+.nm_bengkel{
+	font-size:12pt;
+}
+
+@media print {
+	input.noPrint { display: none; }
+}

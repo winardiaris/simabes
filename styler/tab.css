@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+.TabbedPanels {
+	overflow: hidden;
+	margin: 0px;
+	padding: 0px;
+	clear: none;
+	width: 100
+}
+.TabbedPanelsTabGroup {
+	margin: 0px;
+	padding: 0px;
+}
+
+.TabbedPanelsTab {
+	position: relative;
+	top: 1px;
+	float: left;
+	padding: 4px 10px;
+	margin: 0px 1px 0px 0px;
+	font-size:10pt;
+	background-color: #DDD;
+	list-style: none;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #999;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	cursor: pointer;
+	
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	text-shadow: 0px 1px 1px #fff;
+}
+.TabbedPanelsTabHover {
+	background-color: #CCC;
+}
+.TabbedPanelsTabSelected {
+	background-color: #EEE;
+	border-bottom: 1px solid #EEE;
+}
+
+.TabbedPanelsTab a {
+	color: black;
+	text-decoration: none;
+}
+.TabbedPanelsContentGroup {
+	clear: both;
+	border-left: solid 1px #CCC;
+	border-bottom: solid 1px #CCC;
+	border-top: solid 1px #999;
+	border-right: solid 1px #999;
+	background-color: #EEE;
+}
+
+.TabbedPanelsContent {
+	overflow: hidden;
+	padding: 4px;
+}
+.TabbedPanelsContentVisible {
+}
+
+@media print {
+.TabbedPanels {
+	overflow: visible !important;
+}
+.TabbedPanelsContentGroup {
+	display: block !important;
+	overflow: visible !important;
+	height: auto !important;
+}
+.TabbedPanelsContent {
+	overflow: visible !important;
+	display: block !important;
+	clear:both !important;
+}
+.TabbedPanelsTab {
+	 overflow: visible !important;
+	 display: block !important;
+	 clear:both !important;
+}
+}

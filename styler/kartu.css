@@ -1,0 +1,93 @@
+body{
+	font-family: Arial;
+	font-size:8pt;
+	margin:0px;
+	padding:0;
+}
+.page{
+	width:765.354px;
+	height:auto;
+	margin:0px;
+	padding:0px;
+}
+/*============== kartu pelanggan ==================*/
+
+.kartu > img{
+	width: 30px;
+	height: 30px;
+	padding:0px;
+}
+.kartu{
+	padding:0px;
+	margin:5px;
+	width:85mm;
+	height:54mm;
+	float:left;
+	border-radius:10px;
+	border:1px #000 solid;
+	background:url("../img/bg_kartu2.png") ;
+}
+.kartu_header{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom:1px solid #222;
+	height:20px;
+	padding:3px;
+}
+.kartu_nm_bengkel{
+	font-size:10pt;
+	padding: auto;
+	margin:0;
+	font-weight:bold;
+	}
+.kartu_konten{
+	margin: 0px 0px 5px 5px;
+	width:310px;
+}
+.kartu_konten > font {
+	padding-left:10px; 
+	font-size:6pt;
+	
+}
+#photo_plg{
+	width : 22mm;
+	height:30mm;
+	padding:0px;
+	margin-top:2px;
+	border-radius:5px;
+}
+/*============== Label Barang ==================*/
+.label{
+	width:60mm;
+	height:30mm;
+	margin:5px;
+	padding:0;
+	float:left;
+	border:1px solid #000;
+	text-align:center;	
+	font-size:10pt;
+}
+.label table{
+	width:100%;
+}
+.label th{
+	background:#ADD8E6;
+	padding:3px 0 3px 0;
+}
+.label td{
+	padding:5px;
+}
+.label .harga{
+	font-size:12pt;
+}
+
+
+
+@media print {
+	input.noPrint { display: none; }
+
+	body{
+		margin:0px;
+		padding:0px;
+	}
+}

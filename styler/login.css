@@ -1,0 +1,100 @@
+body{
+	font-family: arial;
+	font-size: 14px;
+	padding: 0;
+	background: #00112a;
+	color: #fff;
+	margin:0px;
+	text-shadow: 1px 2px 1px #000; 
+}
+label{
+	font-size: 18pt;
+}
+.border{
+	padding:10px auto;
+	width:320px;
+	padding :3px;
+	background:transparent;
+	margin: 130px auto 0px auto;
+}
+
+.logo{
+	width : 150px;
+	height : 150px;
+	margin : 5px 90px;
+	
+}
+
+.FLogin{
+	margin: 0px;
+	padding: 0px;
+}
+.textlogin{
+	padding: 5px 5px 5px 10px;
+	height: 40px;
+	width: 290px;
+	color: #999999;
+	font-size: 16px;
+	margin: 0px 10px 0px 10px;
+	border: none;
+	background:  #F1F1F1;
+}
+
+#nm_pengguna{
+	margin-top:10px;
+	border-bottom: solid 1px #eee;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+#kt_sandi{
+	border-top: solid 1px #ccc;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.btn,.btn-mrh{
+	margin-right:  10px;
+	padding: 10px;
+	padding-bottom: 10px;
+	border: 1px solid #c9c9c9;
+	border-radius: 5px;
+	height: 40px;
+	background:#dedede;	
+	font-size: 14px;
+	box-shadow: 0px 1px 5px #000;
+	cursor: pointer;
+	color:#1C1C1C;
+}
+.btn:hover{
+	background:#0072e0;
+	border:1px solid #0040a0;
+}
+.btn:active,
+.btn:focus{
+	background:#0040a0;
+}
+.btn-mrh:hover{
+	background:#EE3A3A;
+	border:1px solid #B92E2E;
+}
+.btn-mrh:active,
+.btn-mrh:focus{
+	background:#B92E2E;
+}
+.btn:hover,
+.btn-mrh:hover{
+	color: #ffffff;
+	text-shadow: 0px 2px 1px #000;
+	-webkit-transition:all 0.3s ease-in-out;
+    -moz-transition:all 0.3s ease-in-out;
+    -o-transition:all 0.3s ease-in-out;
+    transition:all 0.3s ease-in-out;
+ }
+.btn:active,
+.btn-mrh:active{
+	-webkit-transform:scale(0.95);
+    -moz-transform:scale(0.95);
+    -ms-transform:scale(0.95);
+    -o-transform:scale(0.95);
+    transform:scale(0.95);
+}
+
