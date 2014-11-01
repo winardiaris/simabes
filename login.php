@@ -22,8 +22,8 @@ if (!empty($_GET['error'])) {
 <form class="FLogin" name="FLogin" method="post" action="inc/otentikasi.php">
     <div class="border">
 	<img src="img/login.png" class="logo">
-	<input  name="nm_pengguna" id="nm_pengguna" type="text" size="20" maxlength="20" class="textlogin" placeholder="Nama Pengguna"/><br>
-	<input  name="kt_sandi" id="kt_sandi" type="password" size="20" maxlength="20" class="textlogin" placeholder="Kata Sandi" /><br>
+	<input  name="nm_pengguna" id="nm_pengguna" type="text" size="20" maxlength="20" class="textlogin" placeholder="Nama Pengguna" value="admin"/><br>
+	<input  name="kt_sandi" id="kt_sandi" type="password" size="20" maxlength="20" class="textlogin" placeholder="Kata Sandi" value="admin"/><br>
 
 	<p align="right">
 	   	<button class="btn-mrh" type="button" name="button" id="btn-mrh" onClick="window.location='index.php'">Katalog</button>
