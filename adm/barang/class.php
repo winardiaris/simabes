@@ -409,7 +409,7 @@ class barang{
 			$qry= "SELECT * FROM sementara";
 		}
 		$hasil = mysql_query($qry) or die(mysql_error());
-		while($row = mysql_fetch_array($qry))
+		while($row = mysql_fetch_array($hasil))
 			$data[] = $row;
 			return $data;
 	}

@@ -4,7 +4,7 @@
 	$tampil = $brg->tampil_stok_kurang();
 	$jml = count($tampil);
 	
-	$ada = count($brg->tampil_sementara('pesan_barang'));
+	$ada = count($brg->tampil_sementara('pesan_barang',''));
 	
 	echo'
 	<div class="konten">
