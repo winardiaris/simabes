@@ -1,7 +1,7 @@
 <?php
 	$lokasi="Data Barang";
 	$brg = new barang();
-	$tampil = $brg->tampil_barang($id_brg,$id_sup);
+	$tampil = $brg->tampil_barang($id_brg);
 	$jml = count($tampil);
 	$banyak = $jml;
 	
