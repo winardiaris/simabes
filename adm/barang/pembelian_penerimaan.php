@@ -48,7 +48,7 @@
 	</tr>';
 	
 
-	$tampil = $brg->tampil_pembelian_detail($no_pes);
+	$tampil = $brg->tampil_pembelian_detail("*","WHERE no_pes='$no_pes' ");
 	$jml = count($tampil);
 	if($jml != 0){	
 		foreach($tampil as $data){
@@ -80,7 +80,8 @@
 	}
 }	
 	else{ // awal halaman
-	
+	$tampil = $brg->tampil_pembelian();
+	$jml = count($tampil);
 	echo $iframe;
 	echo'
 	<div class="lokasi">
@@ -109,8 +110,7 @@
 	
 
 //ambil data
-	$tampil = $brg->tampil_pembelian();
-	$jml = count($tampil);
+
 	$baris = 0;
 	if($jml>0){
 		foreach($tampil as $data){
@@ -133,7 +133,8 @@
 		echo '		
 		</td>
 		<td align="right">	';
-				echo count($brg->tampil_pembelian_detail($data['no_pes'],$data['id_sup']));
+				$no_pes = $data['no_pes'];
+				echo count($brg->tampil_pembelian_detail("*","WHERE no_pes='$no_pes' "));
 		echo'
 		</td>
 	</tr>';

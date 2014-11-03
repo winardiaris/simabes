@@ -2,21 +2,25 @@
 class barang{
 	//barang
 	var $tambahan ;
-	function tampil_barang($tambahan){
+	function tampil_barang(){
 		if(!empty($_GET['cari']) && empty($id_brg)){
 			$cari = $_GET['cari'];
-			$qry ="SELECT * FROM br_data WHERE id_brg='".$cari."' OR kode_brg='".$cari."'OR nm_brg LIKE '%".$cari."%' ORDER BY id_brg ASC";
+			$qry ="SELECT * FROM br_data WHERE id_brg='".$cari."' OR kode_brg='".$cari."'OR nm_brg LIKE '%".$cari."%' AND  stok>=stok_min ORDER BY id_brg ASC";
 		}
-		/*elseif(empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data ORDER BY id_brg ASC";}
-		elseif(!empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg' ORDER BY id_brg ASC";}*/
-		else{$qry = "SELECT * FROM br_data $tambahan";}
-
+		else{$qry = "SELECT * FROM br_data WHERE stok>=stok_min";}
 		$run =mysql_query($qry) or die(mysql_error());
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
 	}
-	
+	function tampil_barang_w($select,$where){
+		$qry = mysql_query("SELECT $select FROM br_data $where") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
+		while($row = mysql_fetch_array($qry))
+			$data[] = $row;
+			return $data;
+		}
+	}
 	function sunting_barang($field,$id_brg){
 		$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg'";
 		$hasil = mysql_query($qry);
@@ -83,13 +87,8 @@ class barang{
 					WHERE id_brg='$id_brg' LIMIT 1") or die(mysql_error());
 		
 	}
-	function perbaharui_status_barang($id_brg,$dipesan,$stok){
-		if(!empty($id_brg) AND !empty($dipesan) AND empty($stok)){
-			$qry = "UPDATE br_data SET dipesan='$dipesan' WHERE id_brg='$id_brg'";
-		}
-		else{
-			$qry = "UPDATE br_data SET dipesan='$dipesan',stok='$stok' WHERE id_brg='$id_brg'";
-		}
+	function perbaharui_status_barang($set,$where){
+		$qry = "UPDATE br_data SET $set $where";
 		mysql_query($qry) or die (mysql_error());
 	}
 	//barang per kendaraan
@@ -313,40 +312,26 @@ class barang{
 	//stok kurang
 	function tampil_stok_kurang(){
 		$qry = mysql_query("SELECT * FROM br_data  WHERE stok<=stok_min  AND dipesan='0' ORDER BY id_sup ASC") or die (mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	
 	//pembelian
-	function tampil_pembelian_detail($no_pes,$id_sup){
-		if(empty($no_pes) AND empty($id_sup)){
-			$qry = "SELECT * FROM br_pembelian_detail  ";
-		}
-		elseif(!empty($no_pes) AND empty($id_sup)){
-			$qry = "SELECT * FROM br_pembelian_detail WHERE no_pes='$no_pes' ";
-		}
-		else{
-			$qry = "SELECT * FROM br_pembelian_detail WHERE no_pes='$no_pes' AND id_sup='$id_sup' ";
-		}
-		$hasil = mysql_query($qry)  or die (mysql_error());
-		while($row = mysql_fetch_array($hasil))
+	function tampil_pembelian_detail($select,$where){
+		$qry = mysql_query("SELECT $select FROM `br_pembelian_detail`  $where")  or die (mysql_error());
+		if(mysql_num_rows($qry)>0){
+		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	//tampil total detail
-	function tampil_total_detail($no_pes,$id_brg,$diterima){
-		if(!empty($no_pes) AND empty($id_brg) AND empty($diterima)){
-			$qry = "SELECT SUM( total ) AS total, id_sup FROM  br_pembelian_detail WHERE no_pes='$no_pes'";
-		}
-		elseif(!empty($no_pes) AND !empty($id_brg) AND empty($diterima)){
-			$qry="SELECT * FROM br_pembelian_detail WHERE no_pes='$no_pes' AND id_brg='$id_brg'";
-		}
-		elseif(!empty($no_pes) AND empty($id_brg) AND !empty($diterima)){
-			$qry="SELECT SUM( total ) AS total, id_brg, id_sup FROM  br_pembelian_detail WHERE no_pes='$no_pes' AND diterima='$diterima' ";
-		}
-		$hasil = mysql_query($qry) or die(mysql_error());
-		while($row = mysql_fetch_array($hasil))
+	function tampil_total_detail($select,$where){
+		$qry = mysql_query("SELECT $select FROM  br_pembelian_detail $where") or die(mysql_error());
+		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
 	}
@@ -400,20 +385,13 @@ class barang{
 	
 	
 	//sementara
-	function tampil_sementara($id_sementara,$value){
-		if(!empty($id_sementara) AND empty($value)){
-			$qry= "SELECT * FROM sementara where id_sementara='$id_sementara'";
-		}
-		elseif(!empty($id_sementara) AND !empty($value)){
-			$qry= "SELECT * FROM sementara where id_sementara='$id_sementara' AND value='$value' ";
-		}
-		else{
-			$qry= "SELECT * FROM sementara";
-		}
-		$hasil = mysql_query($qry) or die(mysql_error());
-		while($row = mysql_fetch_array($hasil))
+	function tampil_sementara($select,$where){
+		$qry= mysql_query("SELECT $select FROM sementara $where") or die(mysql_error());;
+		if(mysql_num_rows($qry)>0){
+		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function tambah_sementara($id_sementara,$value){
 		mysql_query("INSERT INTO sementara VALUES ('$id_sementara','$value')") or die(mysql_error());

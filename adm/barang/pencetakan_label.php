@@ -3,7 +3,7 @@
 	$brg = new barang();
 	$tampil = $brg->tampil_barang();
 	
-	$cek = $brg->tampil_sementara("pencetakan_label",$value);
+	$cek = $brg->tampil_sementara("*","WHERE id_sementara='pencetakan_label'");
 	$jml = count($cek);
 	if(count($tampil) >0){
 	echo'

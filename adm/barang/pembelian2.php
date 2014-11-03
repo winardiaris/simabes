@@ -22,7 +22,7 @@
 		$noUrut++;
 		$nopes = $a ."/". $b . "/". sprintf("%04s", $noUrut);
 	// ----- akhir kode otomatis ----- //
-		$ada = count($brg->tampil_pembelian_detail($nopes));
+		$ada = count($brg->tampil_pembelian_detail("*","WHERE no_pes='$nopes'"));
 		
 		
 echo '<div class="konten"><div class="lokasi"><label>'.$lokasi.'</label></div>';
@@ -38,7 +38,7 @@ echo '<div class="konten"><div class="lokasi"><label>'.$lokasi.'</label></div>';
 				if(!empty($_GET['id_sup'])){
 					echo '<option value="'.$data['id_sup'].'"';
 					if($data['id_sup'] == $_GET['id_sup']){echo ' selected';}
-					echo '>'.$data['nm_sup'].'</option>';
+					echo '>'.$data['id_sup'].". ".$data['nm_sup'].'</option>';
 				}
 				else{
 					echo '<option value="'.$data['id_sup'].'">'.$data['nm_sup'].'</option>';
@@ -55,7 +55,9 @@ echo '<div class="konten"><div class="lokasi"><label>'.$lokasi.'</label></div>';
 	<form class="form1" name="fkonten1" method="post" action="?mod='.$_GET['mod'].'&h=aksi">';
 		if($ada > 0){
 		echo'<div class="alat">
-			<input type="submit" class="simpan" id="sendiri" name="simpan_pesanan" value="Selesai pemesanan"></div>';
+			<input type="submit" class="simpan" id="sendiri" name="simpan_pesanan" value="Selesai pemesanan">
+			<input type="hidden" name="lokasi" value="'.$lokasi.'"></div>';
+			
 		}
 		echo'
 		<table class="table">
@@ -85,7 +87,7 @@ if(empty($_GET['id_sup'])){ //sebelum memilih suppplier
 			<th >Nama Barang</th><th width="80px">Harga</th>
 			<th width="50px">Stok</th>
 		</tr>';	
-		$tampil = $brg->tampil_sementara('pesan_barang');
+		$tampil = $brg->tampil_sementara("value","WHERE id_sementara='pesan_barang'");
 		foreach($tampil as $data){
 			$id_brg = $data['value'];
 			$baris++;
@@ -102,31 +104,12 @@ if(empty($_GET['id_sup'])){ //sebelum memilih suppplier
 		</tr>
 		
 		';
-			
-			/*$tampil_brg = $brg->tampil_barang($data['value']);
-			foreach($tampil_brg as $data2){
-		
-				$baris++;
-				$kolom= ($baris%2 == 1)? 'kolom-ganjil' : 'kolom-genap';
-				echo'
-		<tr class="'.$kolom.'">
-			<td align="right">'.$baris.'.</td>
-			<td>'.$data2['id_brg'].'</td>
-			<td>'.$data2['nm_brg'].'</td>
-			<td align="right">
-				<span class="mu">Rp. </span>'. number_format($data2['hrg_beli'], 0,',','.').'
-			</td>
-			<td align="right">'.$data2['stok'].'</td>
-		</tr>
-		
-		';
-			} */
 		}
 
 }
 else{ //sudah memilih supplier dan menampilkan data pemesanan berdasarkan id supplier
 		$id_sup=$_GET['id_sup'];
-		$tampil = $brg->tampil_pembelian_detail($nopes,$id_sup);
+		$tampil = $brg->tampil_pembelian_detail("*","WHERE no_pes='$nopes' AND id_sup='$id_sup'");
 		$ada = count($tampil);
 	
 		if($ada != 0){ //jika sudah melakukan pemesanan
@@ -139,14 +122,15 @@ else{ //sudah memilih supplier dan menampilkan data pemesanan berdasarkan id sup
 			
 		$baris = 0;
 		foreach($tampil as $data){
+			$id_brg = $data['id_brg'];
 			$baris++;
 			$kolom= ($baris%2 == 1)? 'kolom-ganjil' : 'kolom-genap';
 		echo'
 		<tr class="'.$kolom.'">
 			<td align="right">'.$baris.'.</td>
-			<td align="center">'.$data['id_brg'].'</td>
-			<td>'.$nm_brg.'</td>
-			<td align="right"><span class="mu">Rp. </span>'. number_format($data['hrg_brg'], 0,',','.') .'</td>
+			<td align="center">'.$id_brg.'</td>
+			<td>'.$brg->sunting_barang('nm_brg',$id_brg).'</td>
+			<td align="right"><span class="mu">Rp. </span>'. number_format($brg->sunting_barang('hrg_beli',$id_brg), 0,',','.') .'</td>
 			<td align="right">'.$data['jml_brg'].'</td>
 			<td align="right"><span class="mu">Rp. </span>'. number_format($data['total'], 0,',','.') .'</td>
 		</tr>
@@ -177,11 +161,12 @@ else{ //sudah memilih supplier dan menampilkan data pemesanan berdasarkan id sup
 			<th width="80px">Harga</th>
 			<th width="50px">Jumlah Pesan</th>
 		</tr>';
-		$tampil = $brg->tampil_sementara("pesan_barang");
+		$tampil = $brg->tampil_sementara("value","WHERE id_sementara='pesan_barang'");
 		foreach($tampil as $data){
 			$id_brg = $data['value'];
-			$tampil_brg = $brg->tampil_barang("WHERE id_brg='$id_brg' AND id_sup='$id_sup'");
-				
+			
+			$tampil_brg = $brg->tampil_barang_w("*","WHERE id_brg='$id_brg' AND id_sup='$id_sup'");
+			if(count($tampil_brg)>0){
 			foreach($tampil_brg as $data2){
 			$baris++;
 			$kolom= ($baris%2 == 1)? 'kolom-ganjil' : 'kolom-genap';
@@ -206,18 +191,20 @@ else{ //sudah memilih supplier dan menampilkan data pemesanan berdasarkan id sup
 		
 			';
 			}
-		}
-		if(count($tampil_brg)>0){
 			echo'
 			<tr><td colspan="6" align="right" class="alat" >	
-				<input type="submit" value="Pesan" name="pesan_brg" class="simpan" id="sendiri"></td></tr>';
-		}
-		else{
+				<input type="submit" value="Pesan" name="pesan_brg" class="simpan" id="sendiri">
+				<input type="hidden" name="lokasi" value="'.$lokasi.'">
+				</td></tr>';
+			}
+			else{
 			echo'<tr><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>';
+			}
 		}
+		
 
-		}//penutup else if(mysql_num_rows($qdetail)>0)
-	}
+		}
+}
 	echo'
 </table>
 </form>

@@ -543,7 +543,7 @@ elseif(isset($_POST['pesan_tambah'])){
 		//manambahkan pesanan
 		$brg->tambah_sementara("pesan_barang",$id_brg);
 		//merubah data barang
-		$brg->perbaharui_status_barang($id_brg,'1');
+		$brg->perbaharui_status_barang("dipesan='1'","WHERE id_brg='$id_brg'");
 		//log
 		$log_pesan="A:1:Menambahkan pembelian barang ($id_brg)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
@@ -567,7 +567,7 @@ elseif(isset($_POST['pesan_brg'])){
 		if(!empty($jml_brg)){
 			$brg->simpan_pembelian_detail($no_pes,$hari_ini,$id_sup,$id_brg,$hrg_brg,$jml_brg,$total,$sekarang);
 			$brg->hapus_sementara('pesan_barang',$id_brg);
-			$brg->perbaharui_status_barang($id_brg,'2');
+			$brg->perbaharui_status_barang("dipesan='2'","WHERE id_brg='$id_brg'");
 
 			echo "<script type='text/javascript'>history.back();</script>";
 		}
@@ -580,7 +580,7 @@ elseif(isset($_POST['simpan_pesanan'])){
 	$tgl_pes=$_POST['tgl_pes'];
 	$id_pengguna=$_SESSION['id_pengguna'];
 
-	$tampil = $brg->tampil_total_detail($no_pes);
+	$tampil = $brg->tampil_total_detail("*","WHERE no_pes='$no_pes'");
 	foreach ($tampil as $data){
 	//$qsimpan = mysql_query("INSERT INTO br_pembelian VALUES('$no_pesan','$tgl_pesan','$d->id_sup','$d->total','0','$id_pengguna','$sekarang')") or die(mysql_error());
 	$brg->simpan_pembelian($no_pes,$tgl_pes,$data['id_sup'],$data['total'],'0',$id_pengguna,$sekarang);
@@ -600,14 +600,14 @@ elseif(isset($_POST['terima'])){
 	for($i=0; $i < $jumlah; $i++){
 		$id_brg=$_POST["item"][$i];
 		
-		$tampil = $brg->tampil_total_detail($no_pes,$id_brg);
+		$tampil = $brg->tampil_total_detail("*","WHERE no_pes='$no_pes' AND id_brg='$id_brg'");
 		foreach ($tampil as $data){
 			$jml_brg = $data['jml_brg'];
 			$stok = $brg->sunting_barang('stok',$id_brg);
 			$tambah = $stok + $jml_brg;
 		
 			$brg->perbaharui_pembelian_detail($no_pes,$id_brg);
-			$brg->perbaharui_status_barang($id_brg,'0',$tambah);
+			$brg->perbaharui_status_barang("dipesan='0',stok='$tambah'","WHERE id_brg='$id_brg'");
 			
 			//log
 			$log_pesan="A:1:Menerima Pemesanan barang ($no_pes | $id_brg)";
@@ -622,7 +622,7 @@ elseif(isset($_POST['terima'])){
 elseif(isset($_POST['simpan_terima'])){
 	$no_pes = $_POST['no_pes'];
 	
-	$tampil = $brg->tampil_total_detail($no_pes,$id_brg,'1');
+	$tampil = $brg->tampil_total_detail("SUM( total ) AS total","WHERE diterima='1' ");
 	foreach($tampil as $data){
 		$total_pembayaran = $data['total'];
 		$brg->perbaharui_pembelian($no_pes,$total_pembayaran);
@@ -634,12 +634,12 @@ elseif(isset($_POST['simpan_terima'])){
 	}
 	
 	//kembalikan status pesan barang untuk barang yang tidak ada
-	$cari = $brg->tampil_pembelian_detail($no_pes,$id_sup)	;
+	$cari = $brg->tampil_pembelian_detail("*","WHERE no_pes='$no_pes' ")	;
 	foreach($cari as $data2){
 		$id_brg = $data2['id_brg'];
 		if($data2['diterima'] == 0){
-
-		$brg->perbaharui_status_barang($id_brg,'0');
+		$brg->perbaharui_status_barang("dipesan='0'","WHERE id_brg='$id_brg'");
+		
 		}
 	}
 	
@@ -654,22 +654,23 @@ elseif(isset($_POST['tambah_antrian_label'])){
 		for($i=0; $i < $jumlah; $i++){
 			$id_brg=$_POST["item"][$i];
 			
-			$cek = $brg->tampil_sementara('pencetakan_label',$id_brg);
+			$cek = $brg->tampil_sementara("*","WHERE id_sementara='pencetakan_label' AND value='$id_brg'");
 			$ada = count($cek);
 			
-			if($ada >0){
-				//$brg->hapus_sementara('pencetakan_label',$id_brg);
+			if($ada > 0){
+				echo "<script type='text/javascript'>window.location='?mod=barang&h=pencetakan_label';</script>";
 			}
 			else{
 				$brg->tambah_sementara('pencetakan_label',$id_brg);
+				//log
+				$log_pesan="A:1:Menambahkan pencetakan label  barang ($id_brg)";
+				$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
+				echo "<script type='text/javascript'>  alert('Berhasil menambahkan antrian ');window.location='?mod=barang&h=pencetakan_label';</script>";
 			}
 					
-			//log
-			$log_pesan="A:1:Menambahkan pencetakan label  barang ($id_brg)";
-			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
+			
 			
 		}
-		echo "<script type='text/javascript'>  alert('Berhasil menambahkan antrian ');window.location='?mod=barang&h=pencetakan_label';</script>";
 	}
 	else{
 		echo "<script type='text/javascript'>  alert('Pilih data untuk ditambahkan dalam antrian');window.location='?mod=barang&h=pencetakan_label';</script>";	

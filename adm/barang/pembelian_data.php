@@ -44,7 +44,9 @@ if($jml > 0){
 		echo'
 		</td>
 		<td align="right">';
-			echo count($brg->tampil_pembelian_detail($data['no_pes'],$data['id_sup']));
+			$no_pes = $data['no_pes'];
+			$id_sup = $data['id_sup'];
+			echo count($brg->tampil_pembelian_detail("*","WHERE no_pes='$no_pes' "));
 		echo'
 		</td>
 	</tr>';
