@@ -1,6 +1,7 @@
 <?php
 class barang{
 	//barang
+	var $tambahan ;
 	function tampil_barang($tambahan){
 		if(!empty($_GET['cari']) && empty($id_brg)){
 			$cari = $_GET['cari'];
@@ -8,7 +9,7 @@ class barang{
 		}
 		/*elseif(empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data ORDER BY id_brg ASC";}
 		elseif(!empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg' ORDER BY id_brg ASC";}*/
-		else{$qry = "SELECT * FROM br_data $tambahan";};
+		else{$qry = "SELECT * FROM br_data $tambahan";}
 
 		$run =mysql_query($qry) or die(mysql_error());
 		while($row = mysql_fetch_array($run))
