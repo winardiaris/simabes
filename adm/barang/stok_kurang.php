@@ -18,7 +18,7 @@
 	<form class="form1" name="fkonten" method="post" action="?mod='.$_GET['mod'].'&h=aksi" >
 		<div class="alat">
 			<input name="pesan_tambah" value="Tambahkan dalam pesanan" class="tambah" id="kiri"  type="submit">
-			<a '; if($ada>0){echo'href="?mod='.$_GET['mod'].'&h=pembelian" '; }echo' ><button type="button" class="perbaharui" id="kanan">Tindak lanjuti pesanan</button></a>
+			<a '; if($ada>0){ echo'href="?mod='.$_GET['mod'].'&h=pembelian" '; }echo' ><button type="button" class="perbaharui" id="kanan">Tindak lanjuti pesanan</button></a>
 			<input type="hidden" name="lokasi" value="'.$lokasi.'">
 		</div>
 	<table cellpadding="5" cellspacing="0" class="table">

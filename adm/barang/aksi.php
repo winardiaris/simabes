@@ -41,8 +41,8 @@ if(isset($_POST['br_simpan'])){
 
 
 	if(empty($nm_brg)){echo "<script type='text/javascript'> alert('Isikan Nama Barang');history.back();</script>";}	
-	elseif(empty($hrg_beli)){echo "<script type='text/javascript'> alert('Harga beli tidak boleh kosong');history.back();</script>";}
-	elseif(empty($hrg_jual)){echo "<script type='text/javascript'> alert('Harga jual tidak boleh kosong');history.back();</script>";}
+	elseif(empty($hrg_beli)){ echo "<script type='text/javascript'> alert('Harga beli tidak boleh kosong');history.back();</script>";}
+	elseif(empty($hrg_jual)){ echo "<script type='text/javascript'> alert('Harga jual tidak boleh kosong');history.back();</script>";}
 	elseif($hrg_jual > ($hrg_beli + ($hrg_beli * (50/100)))){echo "<script type='text/javascript'> alert('Persentase harga jual terlalu tinggi ');history.back();</script>";}
 	elseif(empty($stok)){echo "<script type='text/javascript'> alert('Isikan stok barang tersedia');history.back();</script>";}
 	else{
