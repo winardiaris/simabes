@@ -1,20 +1,21 @@
 <?php
 class barang{
 	//barang
-	function tampil_barang($tambahan){
+	function tampil_barang($id_brg,$id_sup){
 		if(!empty($_GET['cari']) && empty($id_brg)){
 			$cari = $_GET['cari'];
 			$qry ="SELECT * FROM br_data WHERE id_brg='".$cari."' OR kode_brg='".$cari."'OR nm_brg LIKE '%".$cari."%' ORDER BY id_brg ASC";
 		}
-		/*elseif(empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data ORDER BY id_brg ASC";}
-		elseif(!empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg' ORDER BY id_brg ASC";}*/
-		else{$qry = "SELECT * FROM br_data $tambahan";};
+		elseif(empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data ORDER BY id_brg ASC";}
+		elseif(!empty($id_brg) && empty($id_sup)){$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg' ORDER BY id_brg ASC";}
+		else{$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg' AND id_sup='$id_sup' ORDER BY id_brg ASC";};
 
 		$run =mysql_query($qry) or die(mysql_error());
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
 	}
+	
 	
 	function sunting_barang($field,$id_brg){
 		$qry = "SELECT * FROM br_data WHERE id_brg='$id_brg'";

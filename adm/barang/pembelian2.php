@@ -87,9 +87,23 @@ if(empty($_GET['id_sup'])){ //sebelum memilih suppplier
 		</tr>';	
 		$tampil = $brg->tampil_sementara('pesan_barang');
 		foreach($tampil as $data){
-			$tampil_brg = $brg->tampil_barang($data['value']);
-			//$qbrg=mysql_query("SELECT * FROM br_data WHERE id_brg='$dsem->value'");
-			//while($dbrg=mysql_fetch_object($qbrg)){
+			$id_brg = $data['value'];
+			$baris++;
+			$kolom= ($baris%2 == 1)? 'kolom-ganjil' : 'kolom-genap';
+				echo'
+		<tr class="'.$kolom.'">
+			<td align="right">'.$baris.'.</td>
+			<td>'.$id_brg.'</td>
+			<td>'.$brg->sunting_barang('nm_brg',$id_brg).'</td>
+			<td align="right">
+				<span class="mu">Rp. </span>'. number_format($brg->sunting_barang('hrg_beli',$id_brg), 0,',','.').'
+			</td>
+			<td align="right">'.$brg->sunting_barang('stok',$id_brg).'</td>
+		</tr>
+		
+		';
+			
+			/*$tampil_brg = $brg->tampil_barang($data['value']);
 			foreach($tampil_brg as $data2){
 		
 				$baris++;
@@ -106,7 +120,7 @@ if(empty($_GET['id_sup'])){ //sebelum memilih suppplier
 		</tr>
 		
 		';
-			}
+			} */
 		}
 
 }
@@ -163,15 +177,14 @@ else{ //sudah memilih supplier dan menampilkan data pemesanan berdasarkan id sup
 			<th width="80px">Harga</th>
 			<th width="50px">Jumlah Pesan</th>
 		</tr>';
-		$tampil = $brg->tampil_sementara('pesan_barang');
+		$tampil = $brg->tampil_sementara("pesan_barang");
 		foreach($tampil as $data){
-			$tampil_brg = $brg->tampil_barang($data['value'],$id_sup);
+			$id_brg = $data['value'];
+			$tampil_brg = $brg->tampil_barang("WHERE id_brg='$id_brg' AND id_sup='$id_sup'");
 				
 			foreach($tampil_brg as $data2){
-			
 			$baris++;
 			$kolom= ($baris%2 == 1)? 'kolom-ganjil' : 'kolom-genap';
-			$id_sup=$_GET['id_sup'];
 			echo'
 		<tr class="'.$kolom.'" >
 			<td align="right">'.$baris.'.</td>
