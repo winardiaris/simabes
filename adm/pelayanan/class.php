@@ -105,15 +105,19 @@ class pelayanan{
 	}
 	function cek_ada($no_struk,$id_brg){
 		$qry = mysql_query("SELECT `id_brg`,`jml_brg` FROM `ply_penjualan_detail` WHERE `no_struk`='$no_struk' AND `id_brg` LIKE '%$id_brg%' LIMIT 1");
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function cek_pelayanan($no_struk,$id_kt_ply){
 		$qry=mysql_query("SELECT `id_kt_ply`  FROM  `ply_detail` WHERE `no_struk`='$no_struk' AND `id_kt_ply` LIKE '%$id_kt_ply%' ") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}		
 	function tambah_barang($no_struk,$id_brg,$jml_brg,$wkt_ubah){
 		$qry = mysql_query("SELECT hrg_jual FROM br_data WHERE id_brg='$id_brg' ") or die (mysql_error());
@@ -174,15 +178,19 @@ class pelayanan{
 	}	
 	function ambil_ply_detail($no_struk){
 		$qry = mysql_query("SELECT ply_detail.id_kt_ply, ply_kategori.nm_kt_ply, ply_kategori.biaya FROM ply_kategori INNER JOIN ply_detail ON ply_kategori.id_kt_ply = ply_detail.id_kt_ply WHERE ply_detail.no_struk = '$no_struk'") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function ambil_ply_penjualan($no_struk){
 		$qry = mysql_query("SELECT ply_penjualan_detail.id_brg, br_data.nm_brg, br_data.hrg_jual, ply_penjualan_detail.jml_brg, ply_penjualan_detail.total FROM br_data INNER JOIN ply_penjualan_detail ON br_data.id_brg = ply_penjualan_detail.id_brg WHERE ply_penjualan_detail.no_struk='$no_struk' ORDER BY id_brg asc ") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function ambil_jml_brg($field,$no_struk){
 		$qry = mysql_query("SELECT SUM( IF( no_struk LIKE  '%$no_struk%', jml_brg, 0 ) ) AS tot_brg

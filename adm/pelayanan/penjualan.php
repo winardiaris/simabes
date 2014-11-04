@@ -33,7 +33,7 @@
 	
 //
 if(empty($_GET['id'])){
-	$cek = $ply->cek_ada($no_struk,$id_brg);
+	$cek = $ply->cek_ada($no_struk,"");
 	echo'
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label></div>

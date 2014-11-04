@@ -211,7 +211,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 		<div class="lokasi"><label>'.$lokasi.'</label></div>
 	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" >
 		<div class="alat">';
-			if(count($ply->cek_pelayanan($no_struk))>0){
+			if(count($ply->cek_pelayanan($no_struk,""))>0){
 				echo "
 				<input type='submit' class='simpan' id='kiri' name='perbaharui_wo' value='Simpan'>
 				<input name='batal' type='button'  value='Batal' class='batal' id='kanan' onclick='history.back()'>
@@ -367,7 +367,7 @@ elseif($_GET['id']==2  && !empty($_GET['no_wo'])){
 		<div class="lokasi"><label>'.$lokasi.'</label></div>
 	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" >
 		<div class="alat">';
-			if(count($ply->cek_pelayanan($no_struk))>0){
+			if(count($ply->cek_pelayanan($no_struk,""))>0){
 				echo "
 				<input type='submit' class='simpan' id='kiri' name='ply_simpan' value='Selesai Transaksi'>
 				<input name='batal' type='button'  value='Batal' class='batal' id='kanan' onclick='history.back()'>

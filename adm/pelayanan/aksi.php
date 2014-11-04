@@ -145,8 +145,6 @@ elseif(isset($_POST['ply_simpan'])){
 		$ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
 		echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=wo';</script>";		
 	}
-		
-	echo "<script type='text/javascript'>history.back();</script>";
 }
 
 elseif(isset($_POST['ply_selesai'])){

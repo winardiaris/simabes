@@ -39,15 +39,16 @@
 		$a = mysql_query("SELECT SUM( IF( no_struk LIKE  '%$no_struk%', jml_brg, 0 ) ) AS tot_brg".
 						", SUM( IF( no_struk LIKE  '%$no_struk%', total, 0 ) ) AS tot_bayar_brg ".
 						"FROM  ply_penjualan_detail");
-		$b = mysql_query("SELECT SUM( biaya ) AS biaya FROM  ply_detail1 WHERE no_struk LIKE '%$no_struk%'");
+		//$b = mysql_query("SELECT SUM( biaya ) AS biaya FROM  ply_detail1 WHERE no_struk LIKE '%$no_struk%'");
 	
 		$data2=mysql_fetch_array($a);
-		$data3=mysql_fetch_object($b);
+		//$data3=mysql_fetch_object($b);
 		$tot_brg = $data2['tot_brg'];
 		
-		$biaya = $data3->biaya;
+		//$biaya = $data3->biaya;
 		$tot_bayar_brg = $data2['tot_bayar_brg'];
-		$tot_bayar = $biaya + $tot_bayar_brg;
+		//$tot_bayar = $biaya + $tot_bayar_brg;
+		$tot_bayar =  $tot_bayar_brg;
 		
 // ----- akhir jumlah
 // ---- atap
