@@ -1,4 +1,5 @@
 <?php
+sleep(1);
 $plg = new pelanggan();
 $sekarang = date("Y-m-d H:i:s");
 $hari_ini = date("Y-m-d");
@@ -47,7 +48,8 @@ if(isset($_POST['simpan'])){
 		$log_pesan="A:1:Menambahkan data pelanggan ($id_plg)";
 		$plg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 	
-		echo "<script type='text/javascript'>window.location='?mod=pelanggan';</script>";
+		//echo "<script type='text/javascript'>window.location='?mod=pelanggan';</script>";
+		header("location:?mod=pelanggan");
 	
 }
 elseif(isset($_POST['perbaharui'])){
@@ -58,6 +60,7 @@ elseif(isset($_POST['perbaharui'])){
 	$masa_berlaku	=$_POST['masa_berlaku'];
 	$almt_plg		=$_POST['almt_plg'];
 	$telp_plg		=$_POST['telp_plg'];
+	$jns_kelamin	=$_POST['jns_kelamin'];
 	$kt_sandi		=$_POST['kt_sandi'];
 	$ulang_kt_sandi	=$_POST['ulang_kt_sandi'];
 	
@@ -83,7 +86,7 @@ elseif(isset($_POST['perbaharui'])){
 			else{echo "<script type='text/javascript'> alert('jenis Gambar yang anda kirim salah. Harus .jpg .gif .png');history.back();</script>";return false;}
 	}
 	//update data pelanggan
-	$plg->perbaharui($id_plg,$nm_plg,$tgl_registrasi,$masa_berlaku,$almt_plg,$telp_plg,$jns_kelamin,$photo_plg,$sekarang,$kt_sandi);
+	$plg->perbaharui($id_plg,$nm_plg,$tgl_registrasi,$masa_berlaku,$almt_plg,$telp_plg,$jns_kelamin,$sekarang,$kt_sandi);
 		
 		
 		
@@ -100,7 +103,8 @@ elseif(isset($_POST['perbaharui'])){
 		$plg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 		
 
-		echo "<script type='text/javascript'> alert('Data berhasil diperbaharui');window.location='?mod=pelanggan';</script>";
+		//echo "<script type='text/javascript'> alert('Data berhasil diperbaharui');window.location='?mod=pelanggan';</script>";
+		header("location:?mod=pelanggan");
 }
 //hapus
 elseif(isset($_POST['hapus'])){

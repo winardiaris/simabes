@@ -2,7 +2,6 @@
     $(function() {
         $( "#tgl_bergabung" ).datepicker({ dateFormat:'yy-mm-dd',changeMonth: true, changeYear: true });
 		$( "#tgl_lahir" ).datepicker({ dateFormat:'yy-mm-dd',changeMonth: true,changeYear: true});
-		
     });
    
 

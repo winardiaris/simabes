@@ -67,9 +67,11 @@ class barang{
 	}
 	function cek_ada($id_brg,$kode_brg){
 		$qry = mysql_query("select id_brg,kode_brg FROM br_data WHERE id_brg='$id_brg' OR kode_brg='$kode_brg'") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function hapus_barang($id_brg){
 		mysql_query("DELETE FROM br_data WHERE id_brg='$id_brg' LIMIT 1") or die(mysql_error());
@@ -99,7 +101,7 @@ class barang{
 			return $data;
 	}
 	function simpan_brg_kendaraan($id_brg,$id_kendaraan,$wkt_ubah){
-		mysql_query("INSERT INTO br_data_perkendaraan (id_brg,id_kendaraan,wkt_ubah) values ('$id_brg','$id_kendaraan','$sekarang')") or die(mysql_error());
+		mysql_query("INSERT INTO br_data_perkendaraan (id_brg,id_kendaraan,wkt_ubah) values ('$id_brg','$id_kendaraan','$wkt_ubah')") or die(mysql_error());
 	}
 	function hapus_brg_kendaraan($id_brg){
 		mysql_query("DELETE  FROM `br_data_perkendaraan` WHERE id_brg='$id_brg'") or die(mysql_error());
@@ -276,9 +278,11 @@ class barang{
 		else{$qry = "SELECT * FROM sup_data";}
 		
 		$run =mysql_query($qry) or die(mysql_error());
+		if(mysql_num_rows($run)>0){
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function sunting_penyalur($field,$id_sup){
 		$qry = "SELECT * FROM sup_data WHERE id_sup='$id_sup'";
@@ -349,9 +353,11 @@ class barang{
 			$qry = "SELECT * FROM `br_pembelian` ORDER by wkt_ubah DESC";
 		}
 		$hasil = mysql_query($qry)  or die (mysql_error());
+		if(mysql_num_rows($hasil)>0){
 		while($row = mysql_fetch_array($hasil))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function sunting_pembelian($field,$no_pes){
 		$qry = "SELECT * FROM br_pembelian WHERE no_pes='$no_pes'";

@@ -1,6 +1,7 @@
 <?php
 include ("submenu.php");
 include ("class.php");
+
 $mod = $_GET['h'];	
 	switch($mod){
 		
@@ -91,5 +92,6 @@ if(empty($_GET['h'])){
 }
 else{
 	include $view;
+	include ("custom.js");
 }
 ?>

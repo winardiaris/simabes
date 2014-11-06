@@ -12,6 +12,15 @@ function setdisplay(id,s) {
     document.getElementById(id).style.display = "none";
   }
 }
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
+
 function cek_chk(pesan){
 	var len = $('input:checkbox:checked').length;
 	if(len == 0){toastr.warning(""+pesan+"", "SIMaBeS");return false;}

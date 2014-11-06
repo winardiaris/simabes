@@ -70,8 +70,7 @@ echo '
 	</td>
     </tr><tr>
 	<td><label>Photo </label></td><td>:</td>
-	<td><input type="file" name="photo_peg" > <i>max size : 512KB</i></td> 
-	</tr>
+	<td><input type="file" name="photo_peg" > <i>max size : 512KB</i></td> </tr>
 </table>
 </form></div>';
 

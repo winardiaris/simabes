@@ -21,6 +21,7 @@ $banyak = $jml_plg;
 	<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan dihapus\');">
 		<div class="alat">
 			<input name="hapus" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit"/>
+			<input type="hidden" name="lokasi" value="'.$lokasi.'">
 		</div>
 	<table cellpadding="5" cellspacing="0" class="table">
 	<tr id="th">

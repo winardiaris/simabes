@@ -69,7 +69,7 @@ class pelanggan{
 	
 	
 	//perbaharui
-	function perbaharui($id_plg,$nm_plg,$tgl_registrasi,$masa_berlaku,$almt_plg,$telp_plg,$jns_kelamin,$photo_plg,$wkt_ubah,$kt_sandi){
+	function perbaharui($id_plg,$nm_plg,$tgl_registrasi,$masa_berlaku,$almt_plg,$telp_plg,$jns_kelamin,$wkt_ubah,$kt_sandi){
 		$qry="UPDATE dt_pelanggan SET nm_plg='$nm_plg',tgl_registrasi='$tgl_registrasi', masa_berlaku='$masa_berlaku', almt_plg='$almt_plg',telp_plg='$telp_plg',jns_kelamin='$jns_kelamin', wkt_ubah='$wkt_ubah' WHERE id_plg='$id_plg' LIMIT 1";
 		$qry2=" UPDATE dt_pengguna SET nm_asli='$nm_plg',wkt_ubah='$wkt_ubah' WHERE nm_pengguna='".md5($id_plg)."'";
 		
@@ -102,10 +102,12 @@ class pelanggan{
 		mysql_query($qry) OR DIE(mysql_error());
 	}
 	function cek_kosong(){
-		$qry =mysql_query("SELECT * FROM sementara WHERE id_sementara like '%kartu%'")or die(mysql_error());
+		$qry =mysql_query("SELECT * FROM sementara WHERE id_sementara LIKE '%kartu%'")or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function cek_ada($id_plg){
 		$qry = mysql_query("SELECT value FROM sementara WHERE  value='$id_plg'")or die(mysql_error());

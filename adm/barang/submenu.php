@@ -13,8 +13,7 @@
 			<li><a href="?mod='.$_GET['mod'].'&h=kategori">Kategori Barang<img src="../img/daftar.png"></a></li>
 			<li><a href="?mod='.$_GET['mod'].'&h=rak">Rak Penyimpanan <img src="../img/daftar.png"></a></li>
 		<li class="judul">Penyalur</li>
-			<li><a href="?mod='.$_GET['mod'].'&h=penyalur_tambah">Tambah Data penyalur <img src="../img/tambah.png"></a></li>
-			<li><a href="?mod='.$_GET['mod'].'&h=penyalur">Data penyalur <img src="../img/daftar.png"></a></li>
+			<li><a href="?mod='.$_GET['mod'].'&h=penyalur">Data penyalur <img src="../img/orang.png"></a></li>
 		<li class="judul">Pemesanan</li>
 			<li><a href="?mod='.$_GET['mod'].'&h=stok_kurang">Data Stok kurang <img src="../img/daftar.png"></a></li>
 			<li><a href="?mod='.$_GET['mod'].'&h=pembelian_data">Data Pemesanan <img src="../img/daftar.png"></a></li>

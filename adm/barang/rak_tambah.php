@@ -1,11 +1,9 @@
 <?php
 	$lokasi="Tambah Rak";
-
-
 	echo'
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="input-sup" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" onsubmit="return validasi_rak()">
 		<div class="alat">
 			<input name="br_rak_simpan" type="submit" value="Simpan" class="simpan" id="kiri" >
 			<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="history.back();">

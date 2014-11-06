@@ -22,11 +22,12 @@ $banyak = $jml_plg;
 	<form class="form1" name="form1" method="POST" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan diperpanjang\');">
 		<div class="alat">
 			<input name="perpanjang" value="Perpanjang Data Terpilih" class="perbaharui" id="sendiri"  type="submit"/>
+			<input type="hidden" name="lokasi" value="'.$lokasi.'">
 		</div>
 	<table cellpadding="5" cellspacing="0" class="table">
 	<tr id="th">
 		<th align="right" width="10px">No.</th>
-		<th align="center" width="10px"><input type="checkbox" id="semua" name="semua" onclick="checkUncheckAll('.$banyak.')"></th>
+		<th align="center" width="10px">';if($banyak>0)echo '<input type="checkbox" id="semua" name="semua" onclick="checkUncheckAll('.$banyak.')">'; echo'</th>
 		<th align="center" width="80px">ID Pelanggan</th>
 		<th align="center" width="150px">Nama</th>
 		<th align="center">Alamat</th>

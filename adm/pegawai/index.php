@@ -1,7 +1,6 @@
 <?php
 	include ("submenu.php");
 	include ("class.php");
-	include ("notif.js");
 	$h = $_GET['h'];	
 	switch($h){
 		
@@ -34,6 +33,7 @@
 	}
 	else{
 		include $view;
+		include ("custom.js");
 	}
 ?>
 

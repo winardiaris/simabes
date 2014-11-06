@@ -27,6 +27,7 @@ echo'
 	<div class="alat">
 		<input name="kartu_antri" value="Tambahkan dalam antrian" class="tambah" id="kiri" type="submit">
 		<a  href="kartu.php" target="framepopup"  onClick=" return cek_data('.$jml.',\'Jumlah antrian kosong\');"><button name="cetak" class="cetak" id="kanan" type="button">Cetak kartu pelanggan</button></a>
+		<input type="hidden" value="'.$lokasi.'">
 	</div>
 <table cellpadding="5" cellspacing="0" class="table">
 <tr  class="kolom-header">

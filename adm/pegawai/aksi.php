@@ -41,10 +41,11 @@ if(isset($_POST['simpan_pegawai'])){
 	$log_pesan="A:1:Berhasil menambahkan pegawai ID pegawai ($id_peg)";
 	$log_waktu = date("Y-m-d H:i:s");
 	$pg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-	echo "<script type='text/javascript'>window.location='?mod=pegawai';</script>";
+	echo "<script type='text/javascript'>sleep(2000);window.location='?mod=pegawai';</script>";
 }
 // perbaharui
 elseif(isset($_POST['pegawai_perbaharui'])){
+	sleep(1);
 	$id_peg			=$_POST['id_peg'];
 	$nm_peg			=$_POST['nm_peg'];
 	$jns_kelamin	=$_POST['jns_kelamin'];
@@ -92,7 +93,7 @@ elseif(isset($_POST['pegawai_perbaharui'])){
 	$log_waktu = date("Y-m-d H:i:s");
 	$pg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
 	
-	echo "<script type='text/javascript'> alert('Data berhasil diperbaharui');window.location='?mod=pegawai';</script>";
+	echo "<script type='text/javascript'>window.location='?mod=pegawai';</script>";
 }
 //hapus
 elseif(isset($_POST['pegawai_hapus_terpilih'])){

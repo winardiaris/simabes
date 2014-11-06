@@ -18,7 +18,7 @@
 				</form>
 			</div>
 		</div>
-	<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return confirm(\'Hapus Data Terpilih ?\')">
+	<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan dihapus\')">
 		<div class="alat">
 			<input name="br_hapus" value="Hapus Data Terpilih" class="hapus" id="sendiri" align="float" type="submit"/>
 			<input type="hidden" name="lokasi" value="'.$lokasi.'">
@@ -68,7 +68,6 @@ if($jml > 0){
 	</table>
 	</form>
 	</div>';
-	
 }
 elseif(count($tampil)==0  && !empty($_GET['cari'])){
 	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";

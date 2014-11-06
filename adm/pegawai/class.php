@@ -11,8 +11,8 @@ class pegawai{
 		$qry2=" INSERT INTO dt_pengguna 
 				VALUES 
 				('','".md5($id_peg)."','$nm_peg','$kel_id','$photo_peg','".md5($tgl_lahir)."','','$wkt_ubah')";
-		$peg = mysql_query($qry) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
-		$peng = mysql_query($qry2)or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
+		$peg = mysql_query($qry) or die(mysql_error());
+		$peng = mysql_query($qry2)or die(mysql_error());
 	}
 	
 	//tampil
@@ -89,10 +89,10 @@ class pegawai{
 	//perbaharui
 	function perbaharui($id_peg,$nm_peg,$jns_kelamin,$tmpt_lahir,$tgl_lahir,$almt_peg,$telp_peg,$pend_peg,$tgl_bergabung,$pengalaman_peg,$kel_id,$wkt_ubah){
 		$qry="	UPDATE dt_pegawai SET nm_peg='$nm_peg',	jns_kelamin='$jns_kelamin',	tmpt_lahir='$tmpt_lahir',tgl_lahir='$tgl_lahir',almt_peg='$almt_peg',telp_peg='$telp_peg',pend_peg='$pend_peg',tgl_bergabung='$tgl_bergabung', pengalaman_peg='$pengalaman_peg',kel_id='$kel_id',wkt_ubah='$wkt_ubah' WHERE id_peg='$id_peg' ";
-		$qry2=" UPDATE dt_pengguna SET nm_asli='$nm_peg',kel_id='$kel_id',kt_sandi='".md5($tgl_lahir)."',wkt_ubah='$sekarang' WHERE nm_pengguna='".md5($id_peg)."'";
+		$qry2=" UPDATE dt_pengguna SET nm_asli='$nm_peg',kel_id='$kel_id',kt_sandi='".md5($tgl_lahir)."',wkt_ubah='$wkt_ubah' WHERE nm_pengguna='".md5($id_peg)."'";
 		
-		mysql_query($qry) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
-		mysql_query($qry2) or die("<script type='text/javascript'> alert('".mysql_error()."');history.back();</script>");
+		mysql_query($qry) or die(mysql_error());
+		mysql_query($qry2) or die(mysql_error());
 		
 	}
 	function perbaharuiphoto($id_peg,$photo_peg){

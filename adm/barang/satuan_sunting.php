@@ -5,7 +5,7 @@
 	echo'
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi" method="post" enctype="multipart/form-data"  name="sunting-sup" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi" method="post" enctype="multipart/form-data"  name="form1" onsubmit="return validasi_satuan()">
 	<div class="alat">
 		<input name="br_satuan_perbaharui" type="submit" value="Perbaharui" class="perbaharui" id="kiri">
 		<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="javascript:history.back()">

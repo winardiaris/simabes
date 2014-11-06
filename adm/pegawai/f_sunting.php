@@ -19,7 +19,6 @@ echo'
 	<input name="pegawai_perbaharui" type="submit" value="Perbaharui" class="perbaharui" id="kiri">
 	<input name="btn_batal" type="reset"  value="Batal" class="batal" id="kanan" onClick="javascript:history.back()">
 	<input name="lokasi" type="hidden"  value="'.$lokasi.'"></div>
-</form>
 <table cellpadding="5" cellspacing="0" border="0" >
     <tr>
 	<td width="170px"><label>ID Pegawai</label></td>
@@ -74,5 +73,6 @@ echo'
 	<td><input type="file" name="photo_peg" ></td> 
 	</tr>
 </table>
+</form>
 </div>';
 ?>

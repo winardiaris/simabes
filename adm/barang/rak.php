@@ -5,9 +5,9 @@
 	echo'
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" name="fkonten" method="post" action="?mod='.$_GET['mod'].'&h=aksi">
+	<form class="form1" name="fkonten" method="post" action="?mod='.$_GET['mod'].'&h=aksi" name="form1" onsubmit="return cek_chk(\'Pilih data yang akan dihapus\');">
 		<div class="alat">
-			<a href="?mod='.$_GET['mod'].'&h=rak_tambah"><input name="br_rak_tambah" value="Tambah '.$lokasi.'" class="tambah" id="kiri" type="button"></a>
+			<a href="?mod='.$_GET['mod'].'&h=rak_tambah"><input name="br_rak_tambah" value="Tambah" class="tambah" id="kiri" type="button"></a>
 			<input name="br_rak_hapus" value="Hapus Data Terpilih" class="hapus" id="kanan"  type="submit">
 			<input type="hidden" name="lokasi" value="'.$lokasi.'">
 		</div>

@@ -1,4 +1,5 @@
 <?php
+sleep(1);
 $brg = new barang();
 $sekarang = date("Y-m-d H:i:s");
 $hari_ini = date("Y-m-d");
@@ -46,7 +47,8 @@ if(isset($_POST['br_simpan'])){
 	elseif($hrg_jual > ($hrg_beli + ($hrg_beli * (50/100)))){echo "<script type='text/javascript'> alert('Persentase harga jual terlalu tinggi ');history.back();</script>";}
 	elseif(empty($stok)){echo "<script type='text/javascript'> alert('Isikan stok barang tersedia');history.back();</script>";}
 	else{
-	$ada = count($brg->cek_ada($id_brg,$kode_brg));
+		if(!empty($kode_brg)){$ada = count($brg->cek_ada($id_brg,$kode_brg));}
+		
 		if($ada>0){
 			echo "<script type='text/javascript'> alert('Data barang dengan kode [$kode_brg] telah ada');history.back();</script>";
 		}
@@ -86,8 +88,8 @@ if(isset($_POST['br_simpan'])){
 			
 			$log_pesan="A:1:Menyimpan data barang ($id_brg)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-	
-			echo "<script type='text/javascript'>  alert('Barang berhasil disimpan');window.location='?mod=barang';</script>";
+			
+			header ("location:?mod=barang");
 		}
 	}
 	
@@ -186,7 +188,8 @@ elseif(isset($_POST['br_perbaharui'])){
 			$log_pesan="A:3:Memperbaharui data barang ($id_brg)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 	
-			echo "<script type='text/javascript'>  alert('Barang berhasil diperbaharui');window.location='?mod=barang';</script>";
+			//echo "<script type='text/javascript'>  alert('Barang berhasil diperbaharui');window.location='?mod=barang';</script>";
+			header('location:?mod=barang');
 		
 	}
 }
@@ -208,7 +211,7 @@ elseif(isset($_POST['br_kategori_simpan'])){
 			$log_pesan="A:1:Menyimpan data kategori barang ($id_kt_brg)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 			
-			echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=kategori';</script>";
+			echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 		}
 	}
 	
@@ -243,7 +246,7 @@ elseif(isset($_POST['br_kategori_perbaharui'])){
 		
 		$log_pesan="A:3:Memperbaharui data kategori barang ($id_kt_brg)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-		echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=kategori';</script>";
+		echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 	}
 }
 elseif(isset($_POST['br_kualitas_simpan'])){
@@ -263,7 +266,7 @@ elseif(isset($_POST['br_kualitas_simpan'])){
 			$log_pesan="A:1:Menyimpan data kualitas barang ($id_kualitas)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 			
-			echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=kategori';</script>";
+			echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 		}
 	}
 }
@@ -297,7 +300,7 @@ elseif(isset($_POST['br_kualitas_perbaharui'])){
 		$log_pesan="A:3:Memperbaharui data kualitas barang ($id_kualitas)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 		
-		echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=kategori';</script>";
+		echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 	}
 }
 elseif(isset($_POST['br_satuan_simpan'])){
@@ -315,7 +318,7 @@ elseif(isset($_POST['br_satuan_simpan'])){
 			$log_pesan="A:1:Menyimpan data satuan barang ($id_satuan)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 				
-			echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=kategori';</script>";
+			echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 			}
 		}
 	
@@ -346,7 +349,7 @@ elseif(isset($_POST['br_satuan_perbaharui'])){
 		
 		$log_pesan="A:3:Memperbaharui data satuan barang ($id_satuan)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-		echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=kategori';</script>";
+		echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 	}
 	
 }
@@ -367,7 +370,7 @@ elseif(isset($_POST['br_kendaraan_simpan'])){
 				$log_pesan="A:1:Menyimpan data jenis kendaraan ($id_kendaraan)";
 				$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 				
-				echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=kategori';</script>";	
+				echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";	
 			}
 	}
 }
@@ -401,7 +404,7 @@ elseif(isset($_POST['br_kendaraan_perbaharui'])){
 		
 		$log_pesan="A:3:Memperbaharui data jenis kendaraan ($id_kendaraan)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-		echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=kategori';</script>";
+		echo "<script type='text/javascript'>  window.location='?mod=barang&h=kategori';</script>";
 	}
 }
 elseif(isset($_POST['br_rak_simpan'])){
@@ -418,7 +421,7 @@ elseif(isset($_POST['br_rak_simpan'])){
 		
 		$log_pesan="A:1:Menyimpan data Rak penyimpanan ($nm_rak)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-		echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=rak';</script>";
+		echo "<script type='text/javascript'>  window.location='?mod=barang&h=rak';</script>";
 		}
 	}
 }
@@ -455,7 +458,7 @@ elseif(isset($_POST['br_rak_perbaharui'])){
 			
 			$log_pesan="A:3:Memperbaharui data Rak penyimpanan ($id_rak | $nm_rak)";
 			$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-			echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=rak';</script>";
+			echo "<script type='text/javascript'>  window.location='?mod=barang&h=rak';</script>";
 		}
 		else{
 			$ada = count($brg->cek_rak($nm_rak));
@@ -467,7 +470,7 @@ elseif(isset($_POST['br_rak_perbaharui'])){
 				
 				$log_pesan="A:3:Memperbaharui data Rak penyimpanan ($id_rak | $nm_rak)";
 				$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-				echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=rak';</script>";
+				echo "<script type='text/javascript'>  window.location='?mod=barang&h=rak';</script>";
 			}	
 			
 		}
@@ -494,7 +497,7 @@ elseif(isset($_POST['br_supplier_simpan'])){
 				
 				$log_pesan="A:1:Menyimpan data Penyalur ($nm_sup)";
 				$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-			echo "<script type='text/javascript'>  alert('Data berhasil disimpan');window.location='?mod=barang&h=penyalur';</script>";
+			echo "<script type='text/javascript'>  window.location='?mod=barang&h=penyalur';</script>";
 			}
 	}
 }
@@ -531,7 +534,7 @@ elseif(isset($_POST['br_supplier_perbaharui'])){
 		$log_pesan="A:3:Memperbaharui data Penyalur ($nm_sup)";
 		$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
 		
-		echo "<script type='text/javascript'>  alert('Data berhasil diperbaharui');window.location='?mod=barang&h=penyalur';</script>";
+		echo "<script type='text/javascript'>window.location='?mod=barang&h=penyalur';</script>";
 	}
 	
 }
@@ -665,12 +668,9 @@ elseif(isset($_POST['tambah_antrian_label'])){
 				//log
 				$log_pesan="A:1:Menambahkan pencetakan label  barang ($id_brg)";
 				$brg->log($log_tipe,$pengguna,$lokasi,$log_pesan,$sekarang);
-				echo "<script type='text/javascript'>  alert('Berhasil menambahkan antrian ');window.location='?mod=barang&h=pencetakan_label';</script>";
 			}
-					
-			
-			
 		}
+		echo "<script type='text/javascript'>  alert('Berhasil menambahkan antrian ');window.location='?mod=barang&h=pencetakan_label';</script>";
 	}
 	else{
 		echo "<script type='text/javascript'>  alert('Pilih data untuk ditambahkan dalam antrian');window.location='?mod=barang&h=pencetakan_label';</script>";	
