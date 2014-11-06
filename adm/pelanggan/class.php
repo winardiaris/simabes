@@ -124,10 +124,11 @@ class pelanggan{
 			$qry=	mysql_query("SELECT * FROM dt_pelanggan WHERE masa_berlaku <=  tgl_registrasi	ORDER by id_plg ASC ")
 					or die (mysql_error());
 		}
-
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function perpanjang($id_plg,$masa_berlaku,$perpanjang){
 		$qry= "UPDATE dt_pelanggan SET masa_berlaku='$masa_berlaku', perpanjang='$perpanjang' WHERE id_plg='$id_plg'";
