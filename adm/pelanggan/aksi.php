@@ -102,6 +102,102 @@ elseif(isset($_POST['perbaharui'])){
 
 		echo "<script type='text/javascript'> alert('Data berhasil diperbaharui');window.location='?mod=pelanggan';</script>";
 }
+//hapus
+elseif(isset($_POST['hapus'])){
+	$jumlah=count($_POST["item"]);
+	
+	if(!empty($jumlah)){
+	for($i=0; $i < $jumlah; $i++){
+		$id_plg=$_POST["item"][$i];
+		
+		$photo = $plg->sunting('photo_plg',$id_plg);
+		//hapus photo
+		if($photo!="pelanggan/photo/default.png"){if (strlen($photo)>3){if (file_exists($photo)) unlink($photo);}}
+		
+		//hapus data
+		$plg->hapus($id_plg);
+		
+		//log
+		$log_tipe = "Staff";
+		$pengguna=$_SESSION['nama_asli'];
+		$log_lokasi=$lokasi;
+		$log_pesan="A:4:Menghapus data pelanggan, ID pelanggan ($id_plg)";
+		$log_waktu = date("Y-m-d H:i:s");
+		$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
+		
+		
+	}
+		echo "<script type='text/javascript'> alert('Data berhasil dihapus');window.location='?mod=pelanggan';</script>";
+	}
+	else{
+		echo "<script type='text/javascript'> alert('Pilih data yang akan dihapus');window.location='?mod=pelanggan';</script>";
+	}
+	
+}
+elseif(isset($_POST['perpanjang'])){
+	$jumlah=count($_POST["item"]);
+	
+		if(!empty($jumlah)){
+		for($i=0; $i < $jumlah; $i++){
+		$id_plg=$_POST["item"][$i];
+
+			$a = strtotime ( '+1 year' , strtotime ( $plg->sunting('masa_berlaku',$id_plg) ) ) ;
+			$masa_berlaku =date ( 'Y-m-d' , $a );
+			
+			$b = $plg->sunting('perpanjang',$id_plg);
+			$perpanjang = $b + 1;
+			
+			$plg->perpanjang($id_plg,$masa_berlaku,$perpanjang);
+			
+			//log
+			$log_tipe = "Staff";
+			$pengguna=$_SESSION['nama_asli'];
+			$log_lokasi=$lokasi;
+			$log_pesan="A:3:memperpanjang masa berlaku pelanggan, ID pelanggan ($id_plg)";
+			$log_waktu = date("Y-m-d H:i:s");
+			$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);	
+		
+		}
+		echo "<script type='text/javascript'> alert('Berhasil memperpanjang masa berlaku pelanggan');window.location='?mod=pelanggan&h=kadaluarsa';</script>";
+		}
+	}
+//antri 
+elseif(isset($_POST['kartu_antri'])){
+	$jumlah=count($_POST["item"]);
+	if(!empty($jumlah)){
+		if(count($plg->cek_kosong()) == 8 ){
+			echo "<script type='text/javascript'> alert('Jumlah antrian sudah penuh');window.location='?mod=pelanggan&h=kartu';</script>";
+		}
+		elseif(count($plg->cek_kosong()) < 8 ){
+			for($i=0; $i < $jumlah; $i++){
+			$id_plg=$_POST["item"][$i];
+				if(count($plg->cek_ada($id_plg))>0){
+					echo "<script type='text/javascript'> alert('Data telah ada');window.location='?mod=pelanggan&h=kartu';</script>";
+				}
+				else{
+					$plg->kartu_antri($id_plg);		
+					//log
+					$log_tipe = "Staff";
+					$pengguna=$_SESSION['nama_asli'];
+					$log_lokasi=$_POST['lokasi'];
+					$log_pesan="A:5:Menambahkan antrian cetak kartu pelanggan dengan ID pelanggan ($id_plg) ";
+					$log_waktu = date("Y-m-d H:i:s");
+		
+					$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
+					
+					echo "<script type='text/javascript'> alert('Data berhasil ditambahkan dalam antrian');window.location='?mod=pelanggan&h=kartu';</script>";
+				}
+			}
+			
+		}
+	
+		
+	}	
+	else{
+		echo "<script type='text/javascript'> alert('Pilih data untuk ditambahkan dalam antrian');window.location='?mod=pelanggan&h=kartu';</script>";
+	}
+	
+}
 else{echo "<script type='text/javascript'>  alert('tidak ada function');history.back();</script>";}
 
 ?>

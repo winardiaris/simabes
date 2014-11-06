@@ -12,3 +12,12 @@ function setdisplay(id,s) {
     document.getElementById(id).style.display = "none";
   }
 }
+function cek_chk(pesan){
+	var len = $('input:checkbox:checked').length;
+	if(len == 0){toastr.warning(""+pesan+"", "SIMaBeS");return false;}
+	else{return true;}
+}
+function cek_data(i,pesan){
+	if(i == 0){toastr.warning(""+pesan+"", "SIMaBeS");return false;}
+	else{setdisplay('divpopup',1); return true;}
+}

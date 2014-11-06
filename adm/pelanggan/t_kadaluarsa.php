@@ -5,7 +5,6 @@ $tampil = $plg->kadaluarsa();
 $jml_plg=count($tampil);
 $banyak = $jml_plg;	
 
-if(count($tampil)>0){
 	echo '
 	<div class="konten">
 		<div class="lokasi">
@@ -20,7 +19,7 @@ if(count($tampil)>0){
 				</form>
 			</div>
 		</div>
-	<form class="form1" name="form1" method="POST" action="?mod='.$_GET['mod'].'&h='.$_GET['h'] .'" onsubmit="return confirm(\'Perpanjang Data Terpilih ?\')">
+	<form class="form1" name="form1" method="POST" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan diperpanjang\');">
 		<div class="alat">
 			<input name="perpanjang" value="Perpanjang Data Terpilih" class="perbaharui" id="sendiri"  type="submit"/>
 		</div>
@@ -36,6 +35,7 @@ if(count($tampil)>0){
 		<th align="center" width="100px">Masa Berlaku</td>
 		<th align="center" width="120px">Terakhir diubah</th>
 	</tr>';
+if(count($tampil)>0){
 		$i=1;
 		foreach($tampil as $data){
 			$kolom= ($i%2 == 1)? "kolom-ganjil" : "kolom-genap";
@@ -53,56 +53,22 @@ if(count($tampil)>0){
 		</tr>
 		';
 		$i++;
-		}//penutup dari foreach($tampil as $data)
+		}
+}
+elseif(count($tampil)==0  && !empty($_GET['cari'])){
+	echo "<script type='text/javascript'> toastr.warning('Pencarian [".$_GET['cari']."] tidak ditemukan ! <button class=\'perbaharui\' onclick=\' history.back()\'>OK</button>', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Pencarian [".$_GET['cari']."] tidak ditemukan --</td></tr>";
+}
+else{
+	echo "<script type='text/javascript'>toastr.warning('".$lokasi." kosong!', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Data Kosong --</td></tr>";
+}
+
 	echo'
 	</table>
-		<div class="alat">
-			<input name="perpanjang" value="Perpanjang Data Terpilih" class="perbaharui" id="sendiri"  type="submit"/>
-		</div>
 	</form>
 	</div>
 	';
-}
-elseif(count($tampil)==0  && !empty($_GET['cari'])){
-	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";
-}
-else{
-	echo "<script type='text/javascript'> alert('Tidak ada data pelanggan kadaluarsa');window.location='?mod=pelanggan&h=data'</script>";
-} 	
-	
-	
-	
-	
-	
-	
-	
-if(isset($_POST['perpanjang'])){
-	$jumlah=count($_POST["item"]);
-	
-		if(!empty($jumlah)){
-		for($i=0; $i < $jumlah; $i++){
-		$id_plg=$_POST["item"][$i];
-
-			$a = strtotime ( '+1 year' , strtotime ( $plg->sunting('masa_berlaku',$id_plg) ) ) ;
-			$masa_berlaku =date ( 'Y-m-d' , $a );
-			
-			$b = $plg->sunting('perpanjang',$id_plg);
-			$perpanjang = $b + 1;
-			
-			$plg->perpanjang($id_plg,$masa_berlaku,$perpanjang);
-			
-			//log
-			$log_tipe = "Staff";
-			$pengguna=$_SESSION['nama_asli'];
-			$log_lokasi=$lokasi;
-			$log_pesan="A:3:memperpanjang masa berlaku pelanggan, ID pelanggan ($id_plg)";
-			$log_waktu = date("Y-m-d H:i:s");
-			$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);	
-		
-		}
-		echo "<script type='text/javascript'> alert('Berhasil memperpanjang masa berlaku pelanggan');window.location='?mod=pelanggan&h=kadaluarsa';</script>";
-		}
-	}
 ?>
 
 

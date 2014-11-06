@@ -16,7 +16,7 @@ body{
 	width: auto;
 	height: auto;
 	margin: auto 0px 50px 182px;
-	padding: 35px 0px 0px 0px;
+	padding: 30px 0px 0px 0px;
 	vertical-align:middle;
 	font-size: 12px;
 	color:#000;
@@ -60,34 +60,28 @@ table{
  .form2{
 	float:right;
 }
-.form1 input,
-.form1 textarea{
-	margin:0px;
-	border:1px solid #ccc;
-	color:#000;
-}
-.form1 div.alat{
+ div.alat{
 	width : auto;
 	padding:5px 0px 5px 10px ;
 	background:#E5E5E5;
 	border:1px solid #ccc;
 }
-.form1 div.alat2{
+ div.alat2{
 	float:right;
 	width : auto;
 	padding:5px 0px 5px 10px ;
 }
-.form1 .pencarian{
+ .pencarian{
 	visibility: hidden;
 }
-.form1 .tambah,
-.form1 .simpan,
-.form1 .perbaharui,
-.form1 .batal,
-.form1 .hapus,
-.form1 .cetak,
+ .tambah,
+ .simpan,
+ .perbaharui,
+ .batal,
+ .hapus,
+ .cetak,
 .noPrint,
-.form1 .kembali{
+ .kembali{
 	font-size:12px;
 	padding-left:15px;
 	padding-right:15px;
@@ -110,30 +104,30 @@ table{
     
     
 }
-.form1 .simpan:hover,
-.form1 .tambah:hover{
+ .simpan:hover,
+ .tambah:hover{
 	background: #66DE2A;	
 }
-.form1 .perbaharui:hover,
-.form1 .cetak:hover,
+ .perbaharui:hover,
+ .cetak:hover,
 .noPrint:hover{
 	background: #0072e0;	
 }
-.form1 .batal:hover{
+ .batal:hover{
 	background: #FF7F00;	
 }
-.form1 .kembali:hover,
-.form1 .hapus:hover{
+ .kembali:hover,
+ .hapus:hover{
 	background: #EE3A3A;
 }
 
-.form1 .tambah:hover,
-.form1 .simpan:hover,
-.form1 .perbaharui:hover,
-.form1 .batal:hover,
-.form1 .hapus:hover,
-.form1 .cetak:hover,
-.form1 .kembali:hover,
+.tambah:hover,
+ .simpan:hover,
+ .perbaharui:hover,
+ .batal:hover,
+ .hapus:hover,
+ .cetak:hover,
+ .kembali:hover,
 .noPrint:hover{
 	-webkit-transition:all 0.2s ease-in-out;
     -moz-transition:all 0.2s ease-in-out;
@@ -142,13 +136,13 @@ table{
     text-shadow:none;
     color:#fff;
 }
-.form1 .tambah:active,
-.form1 .simpan:active,
-.form1 .perbaharui:active,
-.form1 .batal:active,
-.form1 .hapus:active,
-.form1 .cetak:active,
-.form1 .kembali:active{
+ .tambah:active,
+ .simpan:active,
+ .perbaharui:active,
+ .batal:active,
+ .hapus:active,
+ .cetak:active,
+ .kembali:active{
 	/*
 	-webkit-transform:scale(0.95);
     -moz-transform:scale(0.95);
@@ -160,26 +154,10 @@ table{
     -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
     box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
 }
-
-button#sendiri,
-input#sendiri{
-	border-radius:5px;
-}
-button#kiri,
-input#kiri{
-	border-top-left-radius:5px;
-	border-bottom-left-radius:5px;
-}
-button#tengah,
-input#tengah{
-	margin-left:-4px;
-}
-button#kanan,
-input#kanan{
-	border-top-right-radius:5px;
-	border-bottom-right-radius:5px;
-	margin-left:-4px;
-}
+#sendiri{border-radius:5px;}
+#kiri{border-top-left-radius:5px;border-bottom-left-radius:5px;}
+#tengah{margin-left:-4px;}
+#kanan{	border-top-right-radius:5px;border-bottom-right-radius:5px;margin-left:-4px;}
 /*-----------------------*/
 .text{
 	padding: 5px ;
@@ -609,13 +587,13 @@ iframe {
 	.header-nav,
 	.kanan,
 	.header,
-	.form1 .tambah,
-	.form1 .simpan,
-	.form1 .perbaharui,
-	.form1 .batal,
-	.form1 .hapus,
-	.form1 .cetak,
-	.form1 .kembali,
+	 .tambah,
+	 .simpan,
+	 .perbaharui,
+	 .batal,
+	 .hapus,
+	 .cetak,
+	 .kembali,
 	#wrapper,
 	#sidebar-wrapper
 	 { display: none; }

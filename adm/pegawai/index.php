@@ -1,9 +1,13 @@
 <?php
 	include ("submenu.php");
 	include ("class.php");
+	include ("notif.js");
 	$h = $_GET['h'];	
 	switch($h){
 		
+		case "aksi" :
+		$view = "aksi.php";
+		break;
 		case "tambah" :
 		$view = "f_tambah.php";
 		break;
@@ -31,6 +35,5 @@
 	else{
 		include $view;
 	}
-	
 ?>
 

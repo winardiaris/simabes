@@ -5,7 +5,6 @@ $tampil = $plg->tampil();
 $jml_plg=count($tampil);
 $banyak = $jml_plg;
 
-if(count($tampil)>0){
 	echo '
 	<div class="konten">
 		<div class="lokasi">
@@ -19,7 +18,7 @@ if(count($tampil)>0){
 				</form>
 			</div>
 		</div>
-	<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h='.$_GET['h'] .'" onsubmit="return confirm(\'Hapus Data Terpilih ?\')">
+	<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan dihapus\');">
 		<div class="alat">
 			<input name="hapus" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit"/>
 		</div>
@@ -35,7 +34,7 @@ if(count($tampil)>0){
 		<th align="center" width="100px">Nomor Telepon</td>
 		<th align="center" width="120px">Terakhir diubah</th>
 	</tr>';
-	
+if(count($tampil)>0){	
 	$i = 1;
 	foreach($tampil as $data){
 		$kolom = ($i%2 == 1)? "kolom-ganjil" : "kolom-genap";
@@ -53,60 +52,19 @@ if(count($tampil)>0){
 	</tr>
 		';
 	$i++;
-	}//penutup dari foreach($tampil as $data)
+	}
+}
+elseif(count($tampil)==0  && !empty($_GET['cari'])){
+	echo "<script type='text/javascript'> toastr.warning('Pencarian [".$_GET['cari']."] tidak ditemukan ! <button class=\'perbaharui\' onclick=\' history.back()\'>OK</button>', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Pencarian [".$_GET['cari']."] tidak ditemukan --</td></tr>";
+}
+else{
+	echo "<script type='text/javascript'>toastr.warning('".$lokasi." kosong!', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Data Kosong --</td></tr>";
+}
 	echo'
 	</table>
-		<div class="alat">
-			<input name="hapus" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit"/>
-		</div>
 	</form>
 	</div>
 	';
-}
-elseif(count($tampil)==0  && !empty($_GET['cari'])){
-	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";
-}
-else{
-	echo "<script type='text/javascript'> alert('Data Pelanggan kosong');window.location='?mod=pelanggan&h=tambah'</script>";
-} 
-
-
-
-
-
-
-
-
-//hapus
-if(isset($_POST['hapus'])){
-	$jumlah=count($_POST["item"]);
-	
-	if(!empty($jumlah)){
-	for($i=0; $i < $jumlah; $i++){
-		$id_plg=$_POST["item"][$i];
-		
-		$photo = $plg->sunting('photo_plg',$id_plg);
-		//hapus photo
-		if($photo!="pelanggan/photo/default.png"){if (strlen($photo)>3){if (file_exists($photo)) unlink($photo);}}
-		
-		//hapus data
-		$plg->hapus($id_plg);
-		
-		//log
-		$log_tipe = "Staff";
-		$pengguna=$_SESSION['nama_asli'];
-		$log_lokasi=$lokasi;
-		$log_pesan="A:4:Menghapus data pelanggan, ID pelanggan ($id_plg)";
-		$log_waktu = date("Y-m-d H:i:s");
-		$plg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		
-		
-	}
-		echo "<script type='text/javascript'> alert('Data berhasil dihapus');window.location='?mod=pelanggan';</script>";
-	}
-	else{
-		echo "<script type='text/javascript'> alert('Pilih data yang akan dihapus');window.location='?mod=pelanggan';</script>";
-	}
-	
-}
 ?>

@@ -6,9 +6,6 @@ $lokasi = "Data Pegawai";
 $jml_peg = count($tampil);
 $banyak = $jml_peg;
 
-
-
-if(count($tampil)>0){
 echo'
 <div class="konten">
 	<div class="lokasi">
@@ -22,9 +19,9 @@ echo'
 			</form>
 		</div>
 	</div>
-<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h='.$_GET['h'] .'" onsubmit="return confirm(\'Hapus Data Terpilih ?\')">
+<form class="form1" name="form1" method="post" action="?mod='.$_GET['mod'].'&h=aksi" onsubmit="return cek_chk(\'Pilih data yang akan dihapus\');">
 	<div class="alat">
-		<input name="pegawai_hapus_terpilih" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit">
+		<input name="pegawai_hapus_terpilih" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit" >
 	</div>
 	
 <table cellpadding="5" cellspacing="0" class="table">
@@ -40,9 +37,9 @@ echo'
 	<th align="center" width="100px">Jabatan</td>
 	<th align="center" width="120px" >Terakhir diubah</th>
 </tr>';
-
-$i = 1;
-foreach($tampil as $data){
+if(count($tampil)>0){
+	$i = 1;
+	foreach($tampil as $data){
 	$kolom= ($i%2 == 1)? "kolom-ganjil" : "kolom-genap";
 	$a = '?mod=pegawai&h=sunting&id_peg='.$data['id_peg'];
 	echo'
@@ -59,55 +56,19 @@ foreach($tampil as $data){
 		<td align="center" >'.$data['wkt_ubah'].'</td>
 	</tr>';
 	$i++;
-}
-
-echo'
-</table>
-	<div class="alat">
-		<input name="pegawai_hapus_terpilih" value="Hapus Data Terpilih" class="hapus" id="sendiri"  type="submit">
-	</div>
-</form>
-</div>';
+	}
 }
 elseif(count($tampil)==0  && !empty($_GET['cari'])){
-	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";
+	echo "<script type='text/javascript'> toastr.warning('Pencarian [".$_GET['cari']."] tidak ditemukan ! <button class=\'perbaharui\' onclick=\' history.back()\'>OK</button>', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Pencarian [".$_GET['cari']."] tidak ditemukan --</td></tr>";
 }
 else{
-	echo "<script type='text/javascript'> alert('Data Pegawai kosong');window.location='?mod=pegawai&h=tambah'</script>";
-} 
-
-
-
-//hapus
-if(isset($_POST['pegawai_hapus_terpilih'])){
-	$jumlah=count($_POST["item"]);
-	
-	if(!empty($jumlah)){
-	for($i=0; $i < $jumlah; $i++){
-		$id_peg=$_POST["item"][$i];
-		
-		$photo = $pg->sunting('photo_peg',$id_peg);
-		//hapus photo
-		if($photo!="pegawai/photo/default.png"){if (strlen($photo)>3){if (file_exists($photo)) unlink($photo);}}
-		
-		//hapus data
-		$pg->hapus($id_peg);
-		
-		//log
-		$log_tipe = "Staff";
-		$pengguna=$_SESSION['nama_asli'];
-		$log_lokasi=$lokasi;
-		$log_pesan="A:4:Menghapus data pegawai, ID pegawai ($id_peg)";
-		$log_waktu = date("Y-m-d H:i:s");
-		$pg->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		
-		
-	}
-		echo "<script type='text/javascript'> alert('Data berhasil dihapus');window.location='?mod=pegawai';</script>";
-	}
-	else{
-		echo "<script type='text/javascript'> alert('Pilih data yang akan dihapus');window.location='?mod=pegawai';</script>";
-	}
-	
+	echo "<script type='text/javascript'>toastr.warning('".$lokasi." kosong!', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Data Kosong --</td></tr>";
 }
+echo'
+</table>
+</form>
+</div>';
+
 ?>

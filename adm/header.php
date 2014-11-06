@@ -22,6 +22,7 @@ echo'
 		
 		<link rel="stylesheet" type="text/css" href="../styler/toastr.css">	
 		<script type="text/javascript" src="../styler/toastr.js"></script>
+		<script type="text/javascript" src="../styler/toastr_option.js"></script>
 		
 		
 		<script type="text/javascript" src="../styler/iframe.js"></script>
