@@ -49,15 +49,14 @@
 			
 ?>
 <div >
-	<table width="800px" cellpadding="5" border="0">
+	<table width="600px" cellpadding="2" border="0">
 		<tr><td><font class="nm_bengkel"><?php echo $isi_atap->nm_bengkel?></font></td></tr>
 		<tr><td><label><?php echo $isi_atap->almt_bengkel?></label></td></tr>
 		<tr><td><label><?php echo $isi_atap->telp1?></label></td></tr>
 		<tr><td><label><?php echo $isi_atap->telp2?></label></td></tr>
-		<tr><td align="center"><font class="nm_bengkel"><?php echo $judul ?></font></td></tr>
-
-	</table><br>
-	<table width="800px" cellpadding="5" border="0"  >
+		<tr><th><?php echo $judul ?></th></tr>
+	</table>
+	<table width="600px" cellpadding="2" border="0"  >
 		<tr>
 			<td valign="top" width="120px"><label>No Pesanan</label></td>
 			<td valign="top" width="5px">:</td>
@@ -90,9 +89,8 @@
 		</tr>
 	</table>
 </div>
-<br>
 <div>
-	<table width="800px"  cellpadding="5" border="0">
+	<table width="600px"  cellpadding="2" border="0">
 		<tr id="th">
 			<th width="10px">No</th>
 			<th width="180px">ID | Kode Barang</th>

@@ -46,5 +46,6 @@ if(empty($_GET['h'])){
 }
 else{
 	include $view;
+	include ("custom.js");
 }
 ?>

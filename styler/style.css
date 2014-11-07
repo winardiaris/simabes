@@ -9,7 +9,7 @@ body{
 	font-size: 12px;
 	margin: 0px;
 	padding: 0px;
-	background:url("../img/tekstur2.png") repeat;
+	background:#eee;
 	height:100%;
 }
 .konten{
@@ -33,7 +33,7 @@ body{
 
 .konten .photo{
 	margin-right:20px;
-	border-radius:5px;
+	border-radius:3px;
 	-webkit-box-shadow: #fff 0px 1px 1px;
 	-moz-box-shadow: #fff 0px 1px 1px;
 	box-shadow: #fff 0px 2px 1px;
@@ -49,7 +49,7 @@ table{
 	margin-left: 5px;
 }
 /*--------------------------
- * BUTTON, TEXT, TEXTAREA, RADIO, CHECHKBOX, SELECT
+ * BUTTON, TEXT, TEXTAREA, RADIO, CHECKBOX, SELECT
  * --------------------------*/
  /* BUTTON*/
  .form1{
@@ -102,6 +102,9 @@ table{
     -o-transition:all 0.3s ease-in-out;
     transition:all 0.3s ease-in-out;
     
+   
+	box-shadow:inset 0px 1px 0px rgba(255,255,255,0.6),0px 2px 0px rgba(255,255,255,0.5);
+    
     
 }
  .simpan:hover,
@@ -133,7 +136,7 @@ table{
     -moz-transition:all 0.2s ease-in-out;
     -o-transition:all 0.2s ease-in-out;
     transition:all 0.2s ease-in-out;
-    text-shadow:none;
+    text-shadow:0px 1px 1px rgba(0,0,0,0.7);
     color:#fff;
 }
  .tambah:active,
@@ -143,27 +146,21 @@ table{
  .hapus:active,
  .cetak:active,
  .kembali:active{
-	/*
-	-webkit-transform:scale(0.95);
-    -moz-transform:scale(0.95);
-    -ms-transform:scale(0.95);
-    -o-transform:scale(0.95);
-    transform:scale(0.95);*/
-    
+   
     -webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
     -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
     box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
 }
-#sendiri{border-radius:5px;}
-#kiri{border-top-left-radius:5px;border-bottom-left-radius:5px;}
+#sendiri{border-radius:3px;}
+#kiri{border-top-left-radius:3px;border-bottom-left-radius:3px;}
 #tengah{margin-left:-4px;}
-#kanan{	border-top-right-radius:5px;border-bottom-right-radius:5px;margin-left:-4px;}
+#kanan{	border-top-right-radius:3px;border-bottom-right-radius:3px;margin-left:-4px;}
 /*-----------------------*/
 .text{
 	padding: 5px ;
 	height:20px;
 	border: 1px solid #BFBFBF;
-	border-radius:5px;
+	border-radius:3px;
 	color: #000000;
 	background: #fff;
 	-webkit-box-shadow: #fff 0px 1px 1px;
@@ -173,9 +170,9 @@ table{
 .select{
 	padding: 5px 10px 5px 10px;
 	border: 1px solid #b3b3b3;
-	border-radius:5px;
+	border-radius:3px;
 	color: #000000;
-	background: #ddd;
+	background: linear-gradient(#dedede,#c9c9c9);
 	width:200px;
 	
 	-webkit-box-shadow: #fff 0px 1px 1px;
@@ -197,9 +194,6 @@ textarea:hover,
 .text-pencarian2:hover,
 .select:hover{
 	border: solid 1px #0060bd;
-	box-shadow: 0px 0px 5px #0060bd;
-	-webkit-box-shadow: 0px 0px 5px #0060bd;
-	-moz-box-shadow: 0px 0px 5px #0060bd;
 	
 	-webkit-transition:all 0.2s ease-in-out;
     -moz-transition:all 0.2s ease-in-out;
@@ -214,15 +208,15 @@ textarea:focus,
 .text-pencarian2:focus,
 .select:focus{
 	border: solid 1px #0060bd;
-	box-shadow: 0px 0px 5px #0060bd;
-	-webkit-box-shadow: 0px 0px 5px #0060bd;
-	-moz-box-shadow: 0px 0px 5px #0060bd;
-	background:#FBFFD5;
+	background:#F1F1F1;
+	-webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
 }
 textarea{
 	padding:5px;
 	border: 1px solid #BFBFBF;
-	border-radius: 5px;
+	border-radius: 3px;
 	background: #fff;
 	color: #000000;
 	resize:  vertical;
@@ -376,7 +370,7 @@ table{
 }
 .text-pencarian{
 	border: 1px solid #000000;
-	border-radius: 5px;
+	border-radius: 3px;
 	background: url(../img/pencarian.png) no-repeat right ;
 	background-color:#fff;
 	color: #000000;
@@ -386,7 +380,7 @@ table{
 }
 .text-pencarian2{
 	border: 1px solid #999;
-	border-radius: 5px;
+	border-radius: 3px;
 	background: url(../img/pencarian.png) no-repeat right ;
 	background-color:#fff;
 	color: #000000;
@@ -555,7 +549,7 @@ iframe {
 	margin-bottom: 0px;
 }
 #pengguna img {
-    border-radius: 5px;
+    border-radius: 3px;
     border: 2px solid #fff;
     float: left;
     width: 35px;

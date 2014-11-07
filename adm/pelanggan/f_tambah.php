@@ -34,7 +34,7 @@ echo'
     <tr><td><label>Tanggal Registrasi </label></td><td>:</td><td><input type="text" maxlength="20" size="20" name="tgl_registrasi" id="tgl_registrasi" class="text" value="'.$hari_ini.'" /></td></tr>
     <tr><td><label>Masa Berlaku </label></td><td>:</td><td><input type="text" maxlength="20" size="20" name="masa_berlaku" id="masa_berlaku" class="text" value="'.$berlaku.'" /></td></tr>
     <tr><td valign="top"><label>Alamat Pelanggan *</label></td><td valign="top">:</td><td valign="top"><textarea  cols="50" rows="5" name="almt_plg" placeholder="Isikan alamat"></textarea></td></tr>
-    <tr><td><label>Nomor Telepon *</label></td><td>:</td><td><input  type="text" maxlength="13" size="50" name="telp_plg" class="text" placeholder="Nomor telepon"></td></tr>
+    <tr><td><label>Telepon/ponsel *</label></td><td>:</td><td><input  type="text" maxlength="13" size="50" name="telp_plg" id="telp" class="text" placeholder="Nomor telepon" ></td></tr>
     <tr><td><label>Jenis Kelamin </label></td><td>:</td><td><input name="jns_kelamin" type="radio" value="L" checked>Laki-laki	<input name="jns_kelamin" type="radio" value="P">Perempuan	</td></tr>
 	<tr><td><label>Photo </label></td><td>:</td><td><input type="file" name="photo_plg" title="Ukuran berkas maksimal 512Kb"> <i>max size : 512KB</i></td> </tr>
 	<tr><td><label>Kata Sandi </label></td><td>:</td><td><input type="password" maxlength="50" size="50" name="kt_sandi" class="text" placeholder="Default : simabes"></td></tr>

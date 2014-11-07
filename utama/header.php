@@ -69,11 +69,11 @@ echo "
 	<center>
 	<div id='menu-wrapper'>
 		<div class='isi-menu'>
-		<a ";if($_GET['mod']=="katalog")echo "class='menu2'";else echo "class='menu'"; echo" href='?mod=katalog' title='Katalog ' >Katalog</a>
-		<a ";if($_GET['mod']=="info")echo "class='menu2'";else echo "class='menu'"; echo" href='?mod=info' title='Informasi bengkel' >Info Bengkel</a>
-		<a ";if($_GET['mod']=="bantuan")echo "class='menu2'";else echo "class='menu'"; echo" href='?mod=bantuan' title='Bantuan pencarian' >Bantuan</a>
-		<a ";if($_GET['mod']=="pengguna")echo "class='menu2'";else echo "class='menu'"; echo" href='?mod=pengguna' title='Area pengguna' >Area pengguna</a>
-		<a ";if($_GET['mod']=="tentang")echo "class='menu2'";else echo "class='menu'"; echo" href='?mod=tentang' title='Tentang Aplikasi' >Tentang Aplikasi</a>
+		<a ";if(empty($_GET['mod'])){echo "class='menu2'";}else{ echo "class='menu'";} echo" href='index.php' title='Katalog ' >Katalog</a>
+		<a ";if(!empty($_GET['mod']) AND $_GET['mod']=="info"){echo "class='menu2'";}else{ echo "class='menu'";} echo" href='?mod=info' title='Informasi bengkel' >Info Bengkel</a>
+		<a ";if(!empty($_GET['mod']) AND $_GET['mod']=="bantuan"){echo "class='menu2'";}else{ echo "class='menu'";} echo" href='?mod=bantuan' title='Bantuan pencarian' >Bantuan</a>
+		<a ";if(!empty($_GET['mod']) AND $_GET['mod']=="pengguna"){echo "class='menu2'";}else{ echo "class='menu'";} echo" href='?mod=pengguna' title='Area pengguna' >Area pengguna</a>
+		<a ";if(!empty($_GET['mod']) AND $_GET['mod']=="tentang"){echo "class='menu2'";}else{ echo "class='menu'";} echo" href='?mod=tentang' title='Tentang Aplikasi' >Tentang Aplikasi</a>
 		";
 	echo"</div></div></center>";
 ?>

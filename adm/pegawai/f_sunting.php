@@ -44,8 +44,8 @@ echo'
 	<td valign="top"><label>Alamat Pegawai *</label></td><td valign="top">:</td>
 	<td valign="top"><textarea  cols="50" rows="5" name="almt_peg" >'.$pg->sunting('almt_peg',$id_peg).'</textarea></td>
     </tr><tr>
-	<td><label>Nomor Telepon *</label></td><td>:</td>
-	<td><input  type="text" maxlength="50" size="50" name="telp_peg" class="text" value="'.$pg->sunting('telp_peg',$id_peg).'"></td>
+	<td><label>Telepon/ponsel *</label></td><td>:</td>
+	<td><input  type="text" maxlength="50" size="50" name="telp_peg" id="telp" class="text" value="'.$pg->sunting('telp_peg',$id_peg).'"></td>
     </tr><tr>
 	<td><label>Pendidikan terakhir </label></td><td>:</td>
 	<td><input  type="text" maxlength="50" size="50" name="pend_peg" class="text" value="'.$pg->sunting('pend_peg',$id_peg).'"></td>
@@ -57,7 +57,8 @@ echo'
 	<td valign="top"><textarea  cols="50" rows="5" name="pengalaman_peg" >'.$pg->sunting('pengalaman_peg',$id_peg).'</textarea></td>
     </tr><tr>
 	<td ><label>Kelompok Pengguna </label></td><td>:</td>
-	<td><select  name="kel_id" class="select">';
+	<td><select  name="kel_id" class="select">
+		<option value="0">-- Pilih --</option>';
 		$ambil_pengguna = $pg->ambil_pengguna();
 		$kel_id = $pg->sunting('kel_id',$id_peg);
 		foreach($ambil_pengguna as $data){

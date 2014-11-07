@@ -48,8 +48,8 @@ echo '
 	<td valign="top"><label>Alamat Pegawai *</label></td><td valign="top">:</td>
 	<td valign="top"><textarea  cols="50" rows="5" name="almt_peg" placeholder="Isikan alamat"></textarea></td>
     </tr><tr>
-	<td><label>Nomor Telepon *</label></td><td>:</td>
-	<td><input  type="text" maxlength="13" size="50" name="telp_peg" class="text" placeholder="Nomor telepon"></td>
+	<td><label>Telepon/ponsel *</label></td><td>:</td>
+	<td><input  type="text" maxlength="13" size="50" name="telp_peg" id="telp" class="text" placeholder="Nomor telepon"></td>
     </tr><tr>
 	<td><label>Pendidikan terakhir *</label></td><td>:</td>
 	<td><input  type="text" maxlength="50" size="50" name="pend_peg" class="text" placeholder="isikan pendidikan terakhir"></td>
@@ -61,10 +61,12 @@ echo '
 	<td valign="top"><textarea  cols="50" rows="5" name="pengalaman_peg" placeholder="Isikan alamat"></textarea></td>
     </tr><tr>
 	<td ><label>Kelompok Pengguna </label></td><td>:</td>
-	<td><select  name="kel_id" class="select">';
+	<td><select  name="kel_id" class="select">
+		<option value="0">-- Pilih --</option>';
+	
 		foreach($ambil_pengguna as $data){
-				echo "<option value=\"".$data['kel_id']."\">".$data['nm_kel']."</option>";
-			}
+		echo "<option value=\"".$data['kel_id']."\">".$data['nm_kel']."</option>";
+		}
 		echo'
 		</select>
 	</td>

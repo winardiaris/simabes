@@ -39,29 +39,9 @@ $mod = $_GET['mod'];
 		
 		//pelaporan
 		case "pelaporan":
-		$view = "pelaporan/statistik_barang.php";
+		$view = "pelaporan/index.php";
 		break;
-		case "pelaporan_st_barang":
-		$view = "pelaporan/statistik_barang.php";
-		break;
-		case "pelaporan_st_pelanggan":
-		$view = "pelaporan/statistik_pelanggan.php";
-		break;
-		case "pelaporan_pelayanan":
-		$view = "pelaporan/pelayanan.php";
-		break;
-		case "pelaporan_penjualan":
-		$view = "pelaporan/penjualan.php";
-		break;
-		case "pelaporan_keuangan":
-		$view = "pelaporan/keuangan.php";
-		break;
-		case "pelaporan_keuangan_tambah":
-		$view = "pelaporan/keuangan_tambah.php";
-		break;
-		case "pelaporan_lain":
-		$view = "pelaporan/pelaporan.php";
-		break;
+		
 
 		//sistem
 		case "sistem":

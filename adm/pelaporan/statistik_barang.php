@@ -1,8 +1,7 @@
 <?php
 	$lokasi="Statistik Barang";
 echo"<html><body>";
-	require ("samping.php");
-	
+		
 	$a = mysql_query("SELECT * FROM br_data");
 	$jml_brg=mysql_num_rows($a);
 	

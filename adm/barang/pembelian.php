@@ -36,7 +36,8 @@ echo "<div class='konten'><div class='lokasi'><label>$lokasi</label></div>";
 				<div class='alat'> Pilih Supplier
 		
 				<input name='mod' value='pembelian_br'  type='hidden'>
-				<select name='id_sup' class='select' onChange='form1.submit()'>";
+				<select name='id_sup' class='select' onChange='form1.submit()'>
+					<option value='0'>-- Pilih --</option>";
 				$qry_sup="SELECT id_sup, nm_sup FROM sup_data";
 				$sup=mysql_query($qry_sup) or die (mysql_error());
 					while($data=mysql_fetch_object($sup)){

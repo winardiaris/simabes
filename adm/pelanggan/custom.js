@@ -1,8 +1,13 @@
-<script>
+<script type="text/javascript" >
 $(function() {
 $( "#tgl_registrasi" ).datepicker({ dateFormat:'yy-mm-dd',changeMonth: true,changeYear: true});
 $( "#masa_berlaku" ).datepicker({dateFormat:'yy-mm-dd',changeMonth: true,changeYear: true});
 });
+telp.onkeyup=function(){
+	b=telp.value.replace(/[^\d\.]/g,'').split('.');
+	function c(telp){return telp.split('').reverse().join('')}
+	telp.value=c(c(b[0]).replace(/(\d{3})/g,'$1')).replace(/^,/g,'')+(b[1]!==undefined?'.'+b[1]:'');
+}
 
 function validasi(){
 var form = document.forms['form1'];
@@ -19,4 +24,5 @@ else if (telp_plg == ""){form.telp_plg.focus();toastr.warning("Isikan No. telepo
 else if( ulang_kt_sandi != kt_sandi){form.kt_sandi.focus();toastr.warning("Kata sandi tidak sesuai !", "SIMaBeS");return false;}
 else{toastr.success("Data berhasil disimpan");return true;}
 }
+
 </script>

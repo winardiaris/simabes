@@ -4,12 +4,6 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="../../styler/cetak.css"/>
 	<meta name="generator" content="Geany 1.23.1" />
-	
-	<style type="text/css">
-	@media print {
-	input.noPrint { display: none; }
-	}
-	</style>
 </head>
 <body>
 	<form><input class="noPrint" type="button" value="Cetak Struk"onclick="window.print()"></form>
@@ -64,86 +58,68 @@
 			
 echo"
 <div >
-	<table width='800px' cellpadding='5' border='0'>
+	<table width='600px' cellpadding='2' border='0'>
 		<tr><td><font class='nm_bengkel'>$isi_atap->nm_bengkel</font></td></tr>
 		<tr><td><label>$isi_atap->almt_bengkel</label></td></tr>
-		<tr><td><label>$isi_atap->telp1</label></td></tr>
-		<tr><td><label>$isi_atap->telp2</label></td></tr>
-		<tr><td align='center'><font class='nm_bengkel'>$judul </font></td></tr>
+		<tr><td><label>$isi_atap->telp1  $isi_atap->telp2</label></td></tr>
+		<tr><th align='center'>$judul</th></tr>
 
 	</table>
-	<table width='800px' cellpadding='5' border='0'  >
+	<table width='600px' cellpadding='2' border='0'  >
 		<tr>
-			<td valign='top' width='120px'><label>No Struk</label></td>
-			<td valign='top' width='5px'>:</td>
-			<td valign='top' width='275px'>$no_struk</td>
+			<td valign='top' width='100px'><label>No Struk:</label></td>
+			<td valign='top' width='250px'>$no_struk</td>
 			<!-- -->
-			<td valign='top' width='120px'><label>Tanggal Transaksi</label></td>
-			<td valign='top' width='5px'>:</td>
-			<td valign='top' width='275px'>$data->tgl_struk</td>
-			<!-- -->
+			<td valign='top' width='100px'><label>Tanggal:</label></td>
+			<td valign='top' width='250px'>$data->tgl_struk</td>
 		</tr>
 		<tr>
-			<td valign='top' ><label>ID Pelanggan</label></td>
-			<td valign='top' >:</td>
-			<td valign='top' >$data->id_plg</td>
+			<td valign='top' ><label>ID Pelanggan:</label></td>
+			<td valign='top' >$wo->id_plg</td>
 			<!-- -->
-			<td valign='top' ><label>No. Polisi</label></td>
-			<td valign='top' >:</td>
+			<td valign='top' ><label>No. Polisi:</label></td>
 			<td valign='top'>$wo->no_polisi</td>
 		</tr>
 		<tr>
-			<td valign='top'><label>Nama Pelanggan</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>Nama:</label></td>
 			<td valign='top'>$plg->nm_plg</td>
 			<!-- -->
-			<td valign='top'><label>No. Mesin</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>No. Mesin:</label></td>
 			<td valign='top'>$wo->no_mesin</td>
 		</tr>
 		<tr>
-			<td valign='top'><label>No Telepon/HP</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>Telepon/ponsel:</label></td>
 			<td valign='top'>$plg->telp_plg</td>
 			<!-- -->
-			<td valign='top'><label>Jenis Kendaraan</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>Jenis Kendaraan:</label></td>
 			<td valign='top'>$wo->jns_kendaraan</td>
 		</tr>
 		<tr>
-			<td valign='top'><label>Alamat</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>Alamat:</label></td>
 			<td valign='top'>$plg->almt_plg</td>
 			<!-- -->
-			<td valign='top'><label>KM terakhir</label></td>
-			<td valign='top'>:</td>
+			<td valign='top'><label>KM terakhir:</label></td>
 			<td valign='top'>$wo->km_terakhir</td>
 		</tr>
 		<tr>
-			<td valign='top' valign='top'><label> Saran Mekanik</label></td>
-			<td valign='top' valign='top'>:</td>
+			<td valign='top' valign='top'><label> Saran Mekanik:</label></td>
+			
 			<td valign='top'>$wo->saran</td>
 			<!-- -->
-			<td valign='top' valign='top'><label>Keluhan Pelanggan</label></td>
-			<td valign='top' valign='top'>:</td>
+			<td valign='top' valign='top'><label>Keluhan:</label></td>
 			<td valign='top' colspan='2'>$wo->keluhan</td>
 		</tr>
 		<tr>
-			<td valign='top' valign='top'><label>Mekanik</label></td>
-			<td valign='top' valign='top'>:</td>
+			<td valign='top' valign='top'><label>Mekanik:</label></td>
 			<td valign='top'> ";
-
 				$id_peg=$wo->id_peg;
 				$peg=mysql_query("SELECT nm_peg FROM dt_pegawai WHERE id_peg='$id_peg' LIMIT 1")OR DIE(mysql_error());
 				$dpeg=mysql_fetch_object($peg);
-				
-				echo "( ".$wo->id_peg." ) " .$dpeg->nm_peg;
-			 
+				echo $wo->id_peg." | " .$dpeg->nm_peg;
 			echo" 
 			</td>
 			<!-- -->
-			<td valign='top' valign='top'><label>Petugas Pelayanan</label></td>
-			<td valign='top' valign='top'>:</td>
+			<td valign='top' valign='top'><label>Petugas:</label></td>
 			<td valign='top' colspan='2'>";
 				$qpg=mysql_query("SELECT nm_asli FROM dt_pengguna WHERE id_pengguna='$data->id_pengguna'") or die(mysql_error());
 				$dpg = mysql_fetch_object($qpg);
@@ -155,14 +131,14 @@ echo"
 </div>
 <br>
 <div>
-	<table width='800px'  cellpadding='5' border='0'>
+	<table width='600px'  cellpadding='2' border='0'>
 		<tr id='th'>
 			<th width='10px'>No</th>
-			<th width='150px'>ID</th>
+			<th width='100px'>ID</th>
 			<th>Nama Barang / Jenis Pelayanan</th>
-			<th width='20px'>Jumlah</th>
-			<th width='60px'>Harga</th>
-			<th width='100px'>Total</th>
+			<th width='10px'>Jml</th>
+			<th width='50px'>Harga</th>
+			<th width='90px'>Total</th>
 		</tr>";
 		
 

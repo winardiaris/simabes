@@ -2,8 +2,7 @@
 	$lokasi="Pelaporan";
 	$baris=0;
 	$id=$_GET['id'];
-	
-	require ("samping.php");
+
 	echo"
 	<div class='konten'>
 		<div class='lokasi'><label>$lokasi ";if(isset($id)){echo $id;}echo"</label></div>

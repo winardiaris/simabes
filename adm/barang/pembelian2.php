@@ -32,7 +32,8 @@ echo '<div class="konten"><div class="lokasi"><label>'.$lokasi.'</label></div>';
 			<div class="alat"> Pilih Supplier
 			<input name="mod" value="barang"  type="hidden">
 			<input name="h" value="pembelian"  type="hidden">
-			<select name="id_sup" class="select" onChange="form1.submit()">';
+			<select name="id_sup" class="select" onChange="form1.submit()">
+				<option value="0">-- Pilih --</option>';
 			$tampil_penyalur = $brg->tampil_penyalur();
 			foreach($tampil_penyalur as $data){
 				if(!empty($_GET['id_sup'])){

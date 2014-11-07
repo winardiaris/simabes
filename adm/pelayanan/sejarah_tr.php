@@ -28,7 +28,7 @@
 	<th align="center" width="100px">Tanggal</th>
 </tr>';
 $no=0;
-if(count($tampil) >0){
+if($jml >0){
 	foreach($tampil as $data){
 		$no++;
 		$kolom= ($no%2 == 1)? "kolom-ganjil" : "kolom-genap";
@@ -52,17 +52,14 @@ if(count($tampil) >0){
 		<td align="right">'.$data['tgl_struk'].'</td>
 	</tr>';
 	}
-	echo'
-</table>
-</div>
-</body>
-</html>';
 }
 elseif(count($tampil)==0  && !empty($_GET['cari'])){
-	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";
+	echo "<script type='text/javascript'> toastr.warning('Pencarian [".$_GET['cari']."] tidak ditemukan ! <button class=\'perbaharui\' onclick=\' history.back()\'>OK</button>', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Pencarian [".$_GET['cari']."] tidak ditemukan --</td></tr>";
 }
 else{
-	echo "<script type='text/javascript'> alert('Sejarah kosong');window.location='?mod=pelayanan&h=mulai'</script>";
+	echo "<script type='text/javascript'>toastr.warning('".$lokasi." kosong!', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Data Kosong --</td></tr>";
 } 
-
+echo'</table></div></body></html>';
 ?>

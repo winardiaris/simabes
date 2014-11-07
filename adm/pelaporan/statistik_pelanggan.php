@@ -3,7 +3,7 @@
 	$lokasi="Statistik Pelanggan";
 echo"<html><body>";
 
-	require ("samping.php");
+	
 
 	
 	$a = mysql_query("SELECT * FROM dt_pelanggan");

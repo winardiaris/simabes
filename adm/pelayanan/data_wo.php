@@ -9,8 +9,6 @@ $jml = count($tampil);
 $log_tipe = "Staff";$pengguna=$_SESSION['nama_asli'];$log_lokasi=$lokasi;
 $log_pesan="A:2:Membuka";$log_waktu = $sekarang;
 $ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-
-	if($jml >0){
 	echo '
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label>
@@ -26,7 +24,7 @@ $ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
 	<table class="table" cellpadding="5" cellspacing="0" border="0">
 	<tr><th width="10px">No.</th><th width="20px">Status</th><th width="130px">No Work Order</th><th width="80px">ID Pelanggan</th><th width="80px">No Polisi</th><th width="200px">Jenis Kendaraan</th><th>Keluhan</th><th width="80px">Mekanik</th></tr>';
 	$no=0;
-	
+	if($jml >0){
 	foreach($tampil as $data){
 		$kolom= ($no%2 == 1)? "kolom-ganjil" : "kolom-genap";
 		$no++;
@@ -42,20 +40,15 @@ $ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
 		<td>'.$data['no_wo'].'</td><td>'.$data['id_plg'].'</td><td>'.$data['no_polisi'].'</td><td>'.$data['jns_kendaraan'].'</td><td>'.$data['keluhan'].'</td><td>'.$data['id_peg'].'</td>
 	</tr>';
 	}
-	echo '</table></form></div>';
 }
 elseif(count($tampil)==0  && !empty($_GET['cari'])){
-	echo "<script type='text/javascript'> alert('Pencarian [".$_GET['cari']."] tidak ditemukan');history.back()</script>";
+	echo "<script type='text/javascript'> toastr.warning('Pencarian [".$_GET['cari']."] tidak ditemukan ! <button class=\'perbaharui\' onclick=\' history.back()\'>OK</button>', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Pencarian [".$_GET['cari']."] tidak ditemukan --</td></tr>";
 }
 else{
-	if($_SESSION['kel_id'] == 5){
-		echo "<script type='text/javascript'> alert('Data Work Order kosong');window.location='?mod=utama'</script>";
-	}
-	else{
-		echo "<script type='text/javascript'> alert('Data Work Order kosong');window.location='?mod=pelayanan&h=mulai'</script>";
-	}
+	echo "<script type='text/javascript'>toastr.warning('".$lokasi." kosong!', 'SIMaBeS');</script>";
+	echo "<tr><td colspan='8'>-- Data Kosong --</td></tr>";
 } 
-
-
+echo '</table></form></div>';
 
 ?>

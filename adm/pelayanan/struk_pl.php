@@ -57,32 +57,28 @@
 			
 ?>
 <div >
-	<table width="800px" cellpadding="5" border="0">
+	<table width="600px" cellpadding="2" border="0">
 		<tr><td><font class="nm_bengkel"><?php echo $isi_atap->nm_bengkel?></font></td></tr>
 		<tr><td><label><?php echo $isi_atap->almt_bengkel?></label></td></tr>
 		<tr><td><label><?php echo $isi_atap->telp1?></label></td></tr>
 		<tr><td><label><?php echo $isi_atap->telp2?></label></td></tr>
-		<tr><td align="center"><font class="nm_bengkel"><?php echo $judul ?></font></td></tr>
+		<tr><th align="center"><?php echo $judul ?></th></tr>
 
 	</table>
-	<table width="800px" cellpadding="5" border="0"  >
+	<table width="600px" cellpadding="5" border="0"  >
 		<tr>
-			<td valign="top" width="120px"><label>No Struk</label></td>
-			<td valign="top" width="5px">:</td>
+			<td valign="top" width="120px"><label>No Struk:</label></td>
 			<td valign="top" width="275px"><?php echo $no_struk ?></td>
 			<!-- -->
-			<td valign="top" width="120px"><label>Tanggal Transaksi</label></td>
-			<td valign="top" width="5px">:</td>
+			<td valign="top" width="120px"><label>Tanggal:</label></td>
 			<td valign="top" width="275px"><?php echo $data->tgl_struk; ?></td>
 			<!-- -->
 		</tr>
 		<tr>
-			<td valign="top"><label>Nama Pelanggan</label></td>
-			<td valign="top">:</td>
+			<td valign="top"><label>Pelanggan:</label></td>
 			<td valign="top"><?php echo $data->nm_plg?></td>
 			<!-- -->
-			<td valign="top"><label>Petugas</label></td>
-			<td valign="top">:</td>
+			<td valign="top"><label>Petugas:</label></td>
 			<td valign="top">
 				<?php 
 					$qpg=mysql_query("SELECT nm_asli FROM dt_pengguna WHERE id_pengguna='$data->id_pengguna'") or die(mysql_error());
@@ -95,14 +91,14 @@
 </div>
 <br>
 <div>
-	<table width="800px"  cellpadding="5" border="0">
+	<table width="600px"  cellpadding="5" border="0">
 		<tr id="th">
 			<th width="10px">No</th>
-			<th width="150px">ID</th>
+			<th width="100px">ID</th>
 			<th>Nama Barang </th>
-			<th width="20px">Jumlah</th>
-			<th width="60px">Harga</th>
-			<th width="100px">Total</th>
+			<th width="10px">Jml</th>
+			<th width="50px">Harga</th>
+			<th width="90px">Total</th>
 		</tr>
 		
 		<?php

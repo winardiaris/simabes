@@ -37,9 +37,11 @@ class pelayanan{
 		else{$qry = "SELECT * FROM ply_wo ORDER BY no_wo DESC";}
 		
 		$run = mysql_query($qry) or die (mysql_error());
+		if(mysql_num_rows($run)>0){
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function tampil_wo2($field,$no_wo){
 		$qry = 	mysql_query("SELECT  ply_wo.id_plg, dt_pelanggan.nm_plg, ply_wo.jns_kendaraan, ply_wo.no_polisi, ply_wo.no_mesin, ply_wo.keluhan, ply_wo.id_peg, ply_wo.saran FROM ply_wo 
@@ -83,17 +85,21 @@ class pelayanan{
 					ORDER BY ply_.no_struk DESC";
 		}
 		$run = mysql_query($qry) or die (mysql_error());
+		if(mysql_num_rows($run)>0){
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
+		}
 	}
 	function tampil_sejarah_pl(){
 		if(!empty($_GET['cari'])){$cari = $_GET['cari'];$qry ="SELECT * FROM ply_penjualan WHERE no_struk='".$cari."' OR nm_plg LIKE '%".$cari."%'  ORDER BY no_struk DESC";}
 		else{$qry="	SELECT * FROM ply_penjualan ORDER BY no_struk DESC";}
 		$run = mysql_query($qry) or die (mysql_error());
+		if(mysql_num_rows($run)>0){
 		while($row = mysql_fetch_array($run))
 			$data[] = $row;
 			return $data;
+		}
 	}
 
 	//

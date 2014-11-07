@@ -2,7 +2,7 @@ body{
 	font-family: arial;
 	font-size: 14px;
 	padding: 0;
-	background: #00112a;
+	background: #010E21;
 	color: #fff;
 	margin:0px;
 	text-shadow: 1px 2px 1px #000; 
@@ -30,39 +30,36 @@ label{
 	padding: 0px;
 }
 .textlogin{
+	margin:2px;
 	padding: 5px 5px 5px 10px;
 	height: 40px;
 	width: 290px;
 	color: #999999;
 	font-size: 16px;
-	margin: 0px 10px 0px 10px;
-	border: none;
-	background:  #F1F1F1;
+	border: solid 1px #A9A9A9;
+	background: -webkit-linear-gradient(#FAFAFA,#FFFFFF);
+	box-shadow:inset 0px 1px 2px rgba(0,0,0,0.2),0px 1px 0px rgba(0,0,0,0.5);
+	border-radius:2px;
+}
+.textlogin:active,
+.textlogin:focus{
+	-webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
 }
 
-#nm_pengguna{
-	margin-top:10px;
-	border-bottom: solid 1px #eee;
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-}
-#kt_sandi{
-	border-top: solid 1px #ccc;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
 .btn,.btn-mrh{
 	margin-right:  10px;
 	padding: 10px;
 	padding-bottom: 10px;
 	border: 1px solid #c9c9c9;
-	border-radius: 5px;
+	border-radius: 3px;
 	height: 40px;
 	background:#dedede;	
 	font-size: 14px;
-	box-shadow: 0px 1px 5px #000;
 	cursor: pointer;
 	color:#1C1C1C;
+	box-shadow:inset 0px 1px 0px rgba(255,255,255,0.6),0px 2px 0px rgba(0,0,0,0.5);
 }
 .btn:hover{
 	background:#0072e0;
@@ -84,17 +81,15 @@ label{
 .btn-mrh:hover{
 	color: #ffffff;
 	text-shadow: 0px 2px 1px #000;
-	-webkit-transition:all 0.3s ease-in-out;
-    -moz-transition:all 0.3s ease-in-out;
-    -o-transition:all 0.3s ease-in-out;
-    transition:all 0.3s ease-in-out;
+	-webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
  }
 .btn:active,
 .btn-mrh:active{
-	-webkit-transform:scale(0.95);
-    -moz-transform:scale(0.95);
-    -ms-transform:scale(0.95);
-    -o-transform:scale(0.95);
-    transform:scale(0.95);
+	-webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
 }
 

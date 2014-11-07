@@ -120,12 +120,14 @@
     -webkit-box-shadow:inset 0px 2px 2px rgba(0,0,0,0.4);
     -moz-box-shadow:inset 0px 2px 2px rgba(0,0,0,0.4);
     -o-box-shadow:inset 0px 2px 2px rgba(0,0,0,0.4);
+    border-left:1px solid #000000;
+	border-right:1px solid #000000;
  }
 .menu:hover{
-	background: #0040a0;
+	background: #003482;
 }
 .keluar:hover{
-	background: #ff5555;
+	background: #B40000;
 }
 .menu:active,
 

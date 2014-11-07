@@ -32,7 +32,7 @@ if($_GET['id']==0  && !empty($_GET['no_wo'])){
 //--
 	echo'
 		<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" onsubmit="return validasi_transaksi()">
 		<div class="alat">';
 			if(count($ply->cek_pelayanan($no_struk,'1'))>0){
 				echo "
@@ -88,7 +88,7 @@ if($_GET['id']==0  && !empty($_GET['no_wo'])){
 			</tr>
 			<tr>
 				<td valign="top"><label>Keluhan Pelanggan</label></td><td valign="top">:</td><td><textarea cols="50" rows="4" name="keluhan" readonly="">'.$ply->tampil_wo2('keluhan',$no_wo).'</textarea></td>
-				<td valign="top"><label>Saran Mekanik</label></td><td valign="top">:</td><td><textarea cols="50" rows="4" name="saran"></textarea></td>
+				<td valign="top"><label>Saran Mekanik*</label></td><td valign="top">:</td><td><textarea cols="50" rows="4" name="saran"></textarea></td>
 			</tr>
 	</table>
 	</form>
@@ -96,7 +96,7 @@ if($_GET['id']==0  && !empty($_GET['no_wo'])){
 	
 	echo'
 	<div class="konten2">
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="ply_transaksi_detail" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" >
 		<input type="hidden" name="no_struk"   value="'.$no_struk.'">
 		<input type="hidden" name="lokasi" value="'.$lokasi.'"> <!-- di sembunyikan -->
 		<table class="table" cellspacing="0" cellpadding="3" border="0">
@@ -111,7 +111,7 @@ if($_GET['id']==0  && !empty($_GET['no_wo'])){
 					}
 					echo'
 					</datalist>
-					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri" onclick="return validasi_tambah_ply()">
 				</td>
 				<!--  -->
 				<td>
@@ -126,7 +126,7 @@ if($_GET['id']==0  && !empty($_GET['no_wo'])){
 					echo'
 					</datalist>
 					<input type="number" name="jml_brg" class="text" size="10" maxlength="4" autocomplete="off" placeholder="Jumlah Beli">
-					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri" onclick="return validasi_tambah_brg()">
 				</td>
 			</tr>
 		</table>
@@ -209,7 +209,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 //--
 	echo'
 		<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="wo" onsubmit="return validasi_transaksi();">
 		<div class="alat">';
 			if(count($ply->cek_pelayanan($no_struk,""))>0){
 				echo "
@@ -248,7 +248,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 			<tr>
 				<td><label>Nama Pelanggan</label></td><td>:</td><td>'.$ply->tampil_wo2('nm_plg',$no_wo).'</td>
 				<!-- -->
-				<td><label>Mekanik</label></td>	<td>:</td><td>'.$ply->tampil_wo2('id_peg',$no_wo).'</td>
+				<td><label>Mekanik</label></td>	<td>:</td><td>'.$ply->tampil_wo2('id_peg',$no_wo).'<input type="hidden" name="id_peg" value="'.$ply->tampil_wo2('id_peg',$no_wo).'"></td>
 			</tr>
 			<tr>
 				<td valign="top"><label>Keluhan Pelanggan</label></td><td valign="top">:</td><td valign="top">'.$ply->tampil_wo2('keluhan',$no_wo).'</td>
@@ -260,7 +260,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 	
 	echo'
 	<div class="konten2">
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="ply_transaksi_detail" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" >
 		<input type="hidden" name="no_struk"  size="10" maxlength="4" value="'.$no_struk.'">
 		<input type="hidden" name="lokasi" value="'.$lokasi.'"> <!-- di sembunyikan -->
 		<table class="table" cellspacing="0" cellpadding="3" border="0">
@@ -275,7 +275,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 						}
 						echo'
 					</datalist>
-					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri" onclick="return validasi_tambah_ply();">
 				</td>
 				<!--  -->
 				<td>
@@ -290,7 +290,7 @@ elseif($_GET['id']==1  && !empty($_GET['no_wo'])){
 					echo'
 					</datalist>
 					<input type="number" name="jml_brg" class="text" size="10" maxlength="4" autocomplete="off" placeholder="Jumlah Beli">
-					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri" onclick="return validasi_tambah_brg()">
 				</td>
 			</tr>
 		</table>
@@ -418,7 +418,7 @@ elseif($_GET['id']==2  && !empty($_GET['no_wo'])){
 	
 	echo'
 	<div class="konten2">
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="ply_transaksi_detail" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" >
 		<input type="hidden" name="no_struk"  size="10" maxlength="4" value="'.$no_struk.'">
 		<input type="hidden" name="lokasi" value="'.$lokasi.'"> <!-- di sembunyikan -->
 		<table class="table" cellspacing="0" cellpadding="3" border="0">
@@ -433,7 +433,7 @@ elseif($_GET['id']==2  && !empty($_GET['no_wo'])){
 						}
 						echo'
 					</datalist>
-					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_ply" value="Tambah Pelayanan" class="tambah" id="sendiri" onclick="return validasi_tambah_ply();">
 				</td>
 				<!--  -->
 				<td>
@@ -448,7 +448,7 @@ elseif($_GET['id']==2  && !empty($_GET['no_wo'])){
 					echo'
 					</datalist>
 					<input type="number" name="jml_brg" class="text" size="10" maxlength="4" autocomplete="off" placeholder="Jumlah Beli">
-					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri">
+					<input type="submit" name="tmbh_brg" value="Tambah Barang" class="tambah" id="sendiri" onclick="return validasi_tambah_brg();">
 					
 				</td>
 			</tr>

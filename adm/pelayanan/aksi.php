@@ -1,4 +1,5 @@
 <?php
+sleep(1);
 $ply = new pelayanan();
 $sekarang = date("Y-m-d H:i:s");
 $hari_ini = date("Y-m-d");
@@ -22,7 +23,8 @@ if (isset($_POST['simpan_wo'])){
 		$log_tipe = "Staff";$pengguna=$_SESSION['nama_asli'];$log_lokasi=$lokasi;
 		$log_pesan="A:1:Menyimpan Work Order ($no_wo)";$log_waktu = $sekarang;
 		$ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan';</script>";
+		//echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan';</script>";
+		header("location:?mod=pelayanan");
 	}
 }
 elseif (isset($_POST['tmbh_ply'])){
@@ -93,7 +95,8 @@ elseif(isset($_POST['simpan_wo_dua'])){
 		$log_tipe = "Staff";$pengguna=$_SESSION['nama_asli'];$log_lokasi=$lokasi;
 		$log_pesan="A:1:Menyimpan Work Order ($no_wo | $no_struk)";$log_waktu = $sekarang;
 		$ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		echo "<script type='text/javascript'>alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=wo';</script>";
+		//echo "<script type='text/javascript'>alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=wo';</script>";
+		header("location:?mod=pelayanan&h=wo");
 	}
 }
 elseif(isset($_POST['perbaharui_wo'])){
@@ -109,7 +112,8 @@ elseif(isset($_POST['perbaharui_wo'])){
 	$log_tipe = "Staff";$pengguna=$_SESSION['nama_asli'];$log_lokasi=$lokasi;
 	$log_pesan="A:3:Memperbaharui Work Order ($no_wo | $no_struk)";$log_waktu = $sekarang;
 	$ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-	echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=wo';</script>";
+	//echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=wo';</script>";
+	header("location:?mod=pelayanan&h=wo");
 }
 
 elseif(isset($_POST['ply_simpan'])){

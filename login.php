@@ -22,11 +22,11 @@ if (!empty($_GET['error'])) {
 <form class="FLogin" name="FLogin" method="post" action="inc/otentikasi.php">
     <div class="border">
 	<img src="img/login.png" class="logo">
-	<input  name="nm_pengguna" id="nm_pengguna" type="text" size="20" maxlength="20" class="textlogin" placeholder="Nama Pengguna" value="admin"/><br>
-	<input  name="kt_sandi" id="kt_sandi" type="password" size="20" maxlength="20" class="textlogin" placeholder="Kata Sandi" value="admin"/><br>
+	<input  name="nm_pengguna" type="text" size="20" maxlength="20" class="textlogin" placeholder="Nama Pengguna" value="simabes"/><br>
+	<input  name="kt_sandi"  type="password" size="20" maxlength="20" class="textlogin" placeholder="Kata Sandi" value="simabes"/><br>
 
 	<p align="right">
-	   	<button class="btn-mrh" type="button" name="button" id="btn-mrh" onClick="window.location='index.php'">Katalog</button>
+	   	<button class="btn-mrh" type="button" name="button" id="btn-mrh" onClick="window.location='.'">Katalog</button>
 		<input class="btn" type="submit" name="button" id="btn" value="Masuk"/>
         </p><br/><br/><br/><br/><br/>
 	<p align="center"><?php echo substr($aplikasi,0,7)?> <br/>(Sistem Informasi Manajemen Bengkel Sederhana)<br/>Copyleft &copy; 2014</p>	

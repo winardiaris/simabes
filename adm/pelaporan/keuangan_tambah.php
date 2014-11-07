@@ -1,6 +1,5 @@
 <?php
 $lokasi="Tambah Laporan Keuangan";
-include("samping.php");
 echo"<div class='konten'>";
 if(!empty($_POST['simpan'])){
 	$tgl=$_POST['tgl'];

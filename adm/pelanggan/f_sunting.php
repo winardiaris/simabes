@@ -34,8 +34,8 @@ echo'
 		<td><input type="text" maxlength="20" size="20" name="masa_berlaku" id="masa_berlaku" class="text" value="'.  $plg->sunting('masa_berlaku',$id_plg).'"/></td></tr>
    	<tr><td valign="top"><label>Alamat Pelanggan *</label></td><td valign="top">:</td>
 		<td valign="top"><textarea  cols="50" rows="5" name="almt_plg">'. $plg->sunting('almt_plg',$id_plg) .'</textarea></td></tr>
-   	<tr><td><label>Telp / HP *</label></td><td>:</td>
-		<td><input  maxlength="13" size="20" name="telp_plg" class="text" value="'. $plg->sunting('telp_plg',$id_plg).'"></td></tr>
+   	<tr><td><label>Telepon/ponsel *</label></td><td>:</td>
+		<td><input  maxlength="13" size="20" name="telp_plg" id="telp" class="text" value="'. $plg->sunting('telp_plg',$id_plg).'"></td></tr>
    	<tr><td><label>Jenis Kelamin</label></td><td>:</td>
 		<td><input name="jns_kelamin" type="radio" value="L" '; if($plg->sunting('jns_kelamin',$id_plg) =='L') echo "checked"; echo'>Laki-laki
 			<input name="jns_kelamin" type="radio" value="P" '; if($plg->sunting('jns_kelamin',$id_plg) =='P') echo "checked"; echo'>Perempuan</td></tr>

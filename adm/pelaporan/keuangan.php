@@ -14,15 +14,16 @@
     </script>
 <?php
 	$lokasi="Laporan Keuangan";
-	require ("samping.php");
+
 	
 	echo "
 	<div class='konten'>
 	<input class='noPrint'  type='button' value='Cetak' onclick='window.print()'>
 		<div class='lokasi'><label>$lokasi</label></div>
 	<form name='form1' class='form1' action='' method='get'>
-		<div class='alat'>
-				<input type='hidden' name='mod' value='pelaporan_keuangan'>";
+		<input type='hidden' name='mod' value='".$_GET['mod']."'>
+		<input type='hidden' name='h' value='".$_GET['h']."'>
+		<div class='alat'>";
 				if(!empty($_GET['tgl1']) && !empty($_GET['tgl2'])) {
 					echo"
 					Mulai tanggal <input type='text' name='tgl1' id='tgl1' class='text' size='10' maxlength='11' value='".$_GET['tgl1'] ."'> 
