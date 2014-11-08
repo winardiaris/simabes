@@ -42,11 +42,11 @@
 				<td valign="top">:</td>
 				<td >';
 				$belum = $pel->belum_transaksi();
-				foreach($belum as $plg){
-					
+				if(count($belum)>0){
+					foreach($belum as $plg){
 					echo "<font class='a'>[".$plg['id_plg']."]</font> ".$plg['nm_plg'];
+					}
 				}
-				
 				echo'
 				</td>
 			</tr>

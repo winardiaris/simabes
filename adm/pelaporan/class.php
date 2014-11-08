@@ -35,15 +35,16 @@ class pelaporan{
 	}
 	function tampil_ply_detail($select,$where){
 		$qry=mysql_query("SELECT $select FROM ply_detail $where") or die(mysql_error());
+		if(mysql_num_rows($qry)>0){
 		while($row = mysql_fetch_array($qry))
 			$data[] = $row;
 			return $data;	
+		}
 	}
 	function rata2_ply(){
 		$qtgl=mysql_query("	SELECT  MIN( tgl_struk ) AS tgl1, COUNT(*) AS jml FROM  `ply_`");
 		$dtgl=mysql_fetch_object($qtgl);
 		$tgl1=$dtgl->tgl1;
-		$tgl2=$dtgl->tgl2;
 		$jml=$dtgl->jml;
 		
 		$pecah1=explode("-",$tgl1);
@@ -88,7 +89,6 @@ class pelaporan{
 		$qtgl=mysql_query("	SELECT  MIN( tgl_struk ) AS tgl1, COUNT(*) AS jml FROM  `ply_penjualan`");
 		$dtgl=mysql_fetch_object($qtgl);
 		$tgl1=$dtgl->tgl1;
-		$tgl2=$dtgl->tgl2;
 		$jml=$dtgl->jml;
 				
 		$pecah1=explode("-",$tgl1);
