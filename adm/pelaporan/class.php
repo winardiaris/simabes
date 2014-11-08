@@ -87,7 +87,7 @@ class pelaporan{
 	}
 	function rata2_pl(){
 		$qtgl=mysql_query("	SELECT  MIN( tgl_struk ) AS tgl1, COUNT(*) AS jml FROM  `ply_penjualan`");
-		if(mysql_num_rows($qry)>0){
+		if(mysql_num_rows($qtgl)>0){
 		$dtgl=mysql_fetch_object($qtgl);
 		$tgl1=$dtgl->tgl1;
 		$jml=$dtgl->jml;
