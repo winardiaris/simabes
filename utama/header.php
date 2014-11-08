@@ -12,7 +12,7 @@ echo "
 <head>
 	<title>$aplikasi | Daily Build</title>
 	<link rel='stylesheet' type='text/css' href='styler/utama.css'>
-	<link rel='shortcut icon' href='icon.ico' />
+	<link rel='shortcut icon' href='img/icon.ico' />
 	<script type='text/javascript' src='styler/iframe.js'></script>
 	<meta name='generator' content='Geany 1.23.1' />
 </head><body>

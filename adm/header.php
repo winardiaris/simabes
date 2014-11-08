@@ -10,7 +10,7 @@ echo'
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>'.$aplikasi." | ".strtoupper($_GET['mod']).' | Daily Build</title>
-		<link rel="shortcut icon" href="../icon.ico" />
+		<link rel="shortcut icon" href="../img/icon.ico" />
 		<link rel="stylesheet" type="text/css" href="../styler/header.css">
 		<link rel="stylesheet" type="text/css" href="../styler/style.css">
 

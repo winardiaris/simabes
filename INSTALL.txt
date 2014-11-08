@@ -1,5 +1,5 @@
 Cara instalasi.
--	ektrak simabes_26_08_2014.zip 
+-	ektrak simabes-master.zip 
 	ke direktori tempat web server melayani dokumen. Edit
 	file koneksi.php yang ada dalam direktori inc.
 	ubah pada bagian :
@@ -11,7 +11,7 @@ Cara instalasi.
 
 - 	Kemudian buat sebuah database dengan konfigurasi sesuai
 	dengan yang diisikan dalam file koneksi.php. Isikan data 
-	yang ada dalam file db_contoh.sql ke database yang baru dibuat.
+	yang ada dalam file simabes_example.sql ke database yang baru dibuat.
 
 -	Setelah proses instalasi ini selesai, login ke SIMaBeS
 	menggunakan akun admin dan password admin. Alamat
