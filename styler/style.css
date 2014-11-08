@@ -263,12 +263,8 @@ td{
 	color :#0060bd;
 	text-decoration:underline;
 }
-.kolom-ganjil{
-	background:#E6E6E6;
-}
-.kolom-genap{
-	background:#DDDDDD;
-}
+.kolom-ganjil{background:#E6E6E6;}
+.kolom-genap{background:#DDDDDD;}
 .kolom-ganjil:hover,
 .kolom-genap:hover{
 	background:#0072e0;
