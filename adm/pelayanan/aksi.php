@@ -192,7 +192,8 @@ elseif(isset($_POST['pl_simpan'])){
 		$log_tipe = "Staff";$pengguna=$_SESSION['nama_asli'];$log_lokasi=$lokasi;
 		$log_pesan="A:1:Menyimpan Penjualan ($no_struk)";$log_waktu = $sekarang;
 		$ply->log($log_tipe,$pengguna,$log_lokasi,$log_pesan,$log_waktu);
-		echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=penjualan&id=bayar&no_struk=$no_struk';</script>";
+		//echo "<script type='text/javascript'> alert('Data berhasil disimpan');window.location='?mod=pelayanan&h=penjualan&id=bayar&no_struk=$no_struk';</script>";
+		header("location:?mod=pelayanan&h=penjualan&id=bayar&no_struk=$no_struk");
 	}
 }
 elseif(isset($_POST['pl_selesai'])){

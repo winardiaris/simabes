@@ -27,7 +27,14 @@ function validasi_tambah_brg(){
 	var id_brg = form1.id_brg.value;
 	var jml_brg = form1.jml_brg.value;
 	if(id_brg == ""){form.id_brg.focus();toastr.warning("Isikan barang !", "SIMaBeS");return false;}
-	else if(jml_brg == ""){form.jml_brg.focus();toastr.warning("Isikan jumlah barang !", "SIMaBeS");return false;}
-	
+	else if(jml_brg == ""){form.jml_brg.focus();toastr.warning("Isikan jumlah barang !", "SIMaBeS");return false;}	
+}
+function validasi_penjualan(){
+	var form = document.forms['form'];
+	var nm_plg = form.nm_plg.value;	
+	var tgl_trans = form.tgl_trans.value;	
+	if(nm_plg == ""){form.nm_plg.focus();toastr.warning("Isikan nama pelanggan !", "SIMaBeS");return false;}
+	else if(tgl_trans == ""){form.tgl_trans.focus();toastr.warning("Isikan tanggal transaksi !", "SIMaBeS");return false;}
+	else{toastr.success("Data berhasil disimpan");return true;}
 }
 </script>

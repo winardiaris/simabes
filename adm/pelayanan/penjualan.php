@@ -37,7 +37,7 @@ if(empty($_GET['id'])){
 	echo'
 	<div class="konten">
 	<div class="lokasi"><label>'.$lokasi.'</label></div>
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form" onsubmit="return validasi_penjualan()">
 	<div class="alat">';
 	if(count($cek)>0){
 		echo "
@@ -81,7 +81,7 @@ if(empty($_GET['id'])){
 	</form>
 	</div>
 	<div class="konten2">
-	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="ply_transaksi_detail" >
+	<form class="form1" action="?mod='.$_GET['mod'].'&h=aksi"  method="post" enctype="multipart/form-data"  name="form1" >
 		<div class="alat">
 		<input type="hidden" name="lokasi" value="'.$lokasi.'"> <!-- di sembunyikan -->
 		<input list="id_brg" name="id_brg" class="text" size="30" maxlength="20" autocomplete="off" placeholder="ID Barang/Kode Barang/Nama Barang">
@@ -94,7 +94,7 @@ if(empty($_GET['id'])){
 				echo'
 			</datalist>
 		<input type="number" name="jml_brg" class="text" size="10" maxlength="4" placeholder="Jumlah Beli" autocomplete="off">
-		<input type="submit" name="tmbh_brg" value="Tambah" class="tambah" id="sendiri" >
+		<input type="submit" name="tmbh_brg" value="Tambah" class="tambah" id="sendiri" onclick="return validasi_tambah_brg()">
 		<input type="hidden" name="no_struk"  size="10" maxlength="4" value="'.$no_struk.'">
 		</div>
 		<table class="table" cellspacing="0" cellpadding="5" border="0">
