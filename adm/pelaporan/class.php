@@ -87,6 +87,7 @@ class pelaporan{
 	}
 	function rata2_pl(){
 		$qtgl=mysql_query("	SELECT  MIN( tgl_struk ) AS tgl1, COUNT(*) AS jml FROM  `ply_penjualan`");
+		if(mysql_num_rows($qry)>0){
 		$dtgl=mysql_fetch_object($qtgl);
 		$tgl1=$dtgl->tgl1;
 		$jml=$dtgl->jml;
@@ -107,6 +108,8 @@ class pelaporan{
 		$selisih=$jd2-$jd1+1;
 
 		$rata2=$jml / $selisih;
+		}
+		else{$rata2 = 0;}
 		return $rata2;
 	}
 	function top_ten(){
