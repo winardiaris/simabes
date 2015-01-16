@@ -9,14 +9,16 @@ body{
 	font-size: 12px;
 	margin: 0px;
 	padding: 0px;
-	background:#eee;
+	background: url('../img/bg.png') repeat;
+	line-height: 1.5em;
+	color: #444;
 	height:100%;
 }
 .konten{
 	width: auto;
 	height: auto;
-	margin: auto 0px 50px 182px;
-	padding: 30px 0px 0px 0px;
+	margin: 0 0 50px 180px;
+	padding: 30px 5px 0px 5px;
 	vertical-align:middle;
 	font-size: 12px;
 	color:#000;
@@ -34,15 +36,12 @@ body{
 .konten .photo{
 	margin-right:20px;
 	border-radius:3px;
-	-webkit-box-shadow: #fff 0px 1px 1px;
-	-moz-box-shadow: #fff 0px 1px 1px;
-	box-shadow: #fff 0px 2px 1px;
 }
 table{
 	width: 100%;
 	height: auto;
 	margin: 0px 0px 10px 0px;
-	border:1px solid #7F7F7F;
+	border:1px solid #ccc;
 }
 .mu{
 	float:left;
@@ -85,27 +84,19 @@ table{
 	font-size:12px;
 	padding-left:15px;
 	padding-right:15px;
-	height:25px;
+	height:30px;
 	vertical-align:middle;
 	border:1px solid #999999;
-	text-shadow:0px 1px 1px #fff;
 	cursor: pointer;
 	color:#000;
 	
-	background: -webkit-linear-gradient(#dedede,#c9c9c9 );
-	background: -o-linear-gradient(#dedede,#c9c9c9);
-	background: -moz-linear-gradient(#dedede,#c9c9c9);
-	background: linear-gradient(#dedede,#c9c9c9);
+	background:#D4D4D4;
 	
 	-webkit-transition:all 0.3s ease-in-out;
     -moz-transition:all 0.3s ease-in-out;
     -o-transition:all 0.3s ease-in-out;
     transition:all 0.3s ease-in-out;
-    
-   
-	box-shadow:inset 0px 1px 0px rgba(255,255,255,0.6),0px 2px 0px rgba(255,255,255,0.5);
-    
-    
+      
 }
  .simpan:hover,
  .tambah:hover{
@@ -136,7 +127,6 @@ table{
     -moz-transition:all 0.2s ease-in-out;
     -o-transition:all 0.2s ease-in-out;
     transition:all 0.2s ease-in-out;
-    text-shadow:0px 1px 1px rgba(0,0,0,0.7);
     color:#fff;
 }
  .tambah:active,
@@ -147,9 +137,7 @@ table{
  .cetak:active,
  .kembali:active{
    
-    -webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
-    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
-    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+    
 }
 #sendiri{border-radius:3px;}
 #kiri{border-top-left-radius:3px;border-bottom-left-radius:3px;}
@@ -163,21 +151,18 @@ table{
 	border-radius:3px;
 	color: #000000;
 	background: #fff;
-	-webkit-box-shadow: #fff 0px 1px 1px;
-	-moz-box-shadow: #fff 0px 1px 1px;
-	box-shadow: #fff 0px 1px 1px;
+	-webkit-transition:all 0.2s ease-in-out;
+    -moz-transition:all 0.2s ease-in-out;
+    -o-transition:all 0.2s ease-in-out;
+    transition:all 0.2s ease-in-out;
 }
 .select{
 	padding: 5px 10px 5px 10px;
 	border: 1px solid #b3b3b3;
 	border-radius:3px;
 	color: #000000;
-	background: linear-gradient(#dedede,#c9c9c9);
+	background: #ddd;
 	width:200px;
-	
-	-webkit-box-shadow: #fff 0px 1px 1px;
-	-moz-box-shadow: #fff 0px 1px 1px;
-	box-shadow: #fff 0px 1px 1px;
 }
 
 .checkbox,.radio{
@@ -193,12 +178,7 @@ textarea:hover,
 .text-pencarian:hover,
 .text-pencarian2:hover,
 .select:hover{
-	border: solid 1px #0060bd;
-	
-	-webkit-transition:all 0.2s ease-in-out;
-    -moz-transition:all 0.2s ease-in-out;
-    -o-transition:all 0.2s ease-in-out;
-    transition:all 0.2s ease-in-out;
+	border: solid 1px #2099D6;
 }
 .text-pencarian:focus,
 .text-pencarian2:focus,
@@ -207,11 +187,8 @@ textarea:focus,
 .text-pencarian:focus,
 .text-pencarian2:focus,
 .select:focus{
-	border: solid 1px #0060bd;
-	background:#F1F1F1;
-	-webkit-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
-    -moz-box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
-    box-shadow:0px 2px 2px rgba(0,0,0,0.6) inset, 0px 0px 0px 1px rgba(188,188,188,0.1);
+	border: solid 1px #2099D6;
+	box-shadow:0 0 10px #2099D6;
 }
 textarea{
 	padding:5px;
@@ -220,10 +197,6 @@ textarea{
 	background: #fff;
 	color: #000000;
 	resize:  vertical;
-	
-	-webkit-box-shadow: #fff 0px 1px 1px;
-	-moz-box-shadow: #fff 0px 1px 1px;
-	box-shadow: #fff 0px 1px 1px;
 }
 label{
 	margin-left:10px;
@@ -231,54 +204,37 @@ label{
 }
 th{
 	color: #1a1a1a;
-	text-shadow: 0px 1px 1px #fff;
-	background: -webkit-linear-gradient(#dedede,#c9c9c9 );
-	background: -o-linear-gradient(#dedede,#c9c9c9);
-	background: -moz-linear-gradient(#dedede,#c9c9c9);
-	background: linear-gradient(#dedede,#c9c9c9);
-	border-bottom: solid 1px #999999;
+	background: #dedede;
+	border-bottom: solid 1px #ccc;
 	height:20px;
 	padding:5px;
 	margin:0px;
 	font-size: 12px;
-	border-right:  1px dotted #eee;
 }
-
-td{
-	border-bottom: thin dotted #fff;
-	border-right:  thin dotted #fff;
-	min-height:30px;
-}
-.total{
-	background:#ADD8E6;
-	font-weight:bold;
-}
+td{	min-height:30px;}
+.total{	background:#ADD8E6;	font-weight:bold;}
 
 .a{
-	color :#0060bd;
+	color :#2099D6;
 	margin-top:10px;
 }
 .a:hover,
 .a:focus{
-	color :#0060bd;
+	color :#2099D6;
 	text-decoration:underline;
 }
-.kolom-ganjil{background:#E6E6E6;}
-.kolom-genap{background:#DDDDDD;}
+.kolom-ganjil{background:#EEEEEE;}
+.kolom-genap{background:#E6E6E6;}
 .kolom-ganjil:hover,
 .kolom-genap:hover{
-	background:#0072e0;
+	background:#2099D6;
 	color: #ffffff;
 }
 .judul-td{
 	color: #1a1a1a;
-	text-shadow: 0px 1px 1px #fff;
-	background: -webkit-linear-gradient(#dedede,#c9c9c9 );
-	background: -o-linear-gradient(#dedede,#c9c9c9);
-	background: -moz-linear-gradient(#dedede,#c9c9c9);
-	background: linear-gradient(#dedede,#c9c9c9);
-	border-bottom: solid 1px #999999;
-	border-top: solid 1px #999999
+	background: #ddd;
+	border-bottom: solid 1px #ccc;
+	border-top: solid 1px #ccc;
 }
 table{
 	background:#eee;
@@ -286,7 +242,7 @@ table{
 
 #wrapper {
 	padding-left: 50px;
-	margin-top: 37px;
+	margin-top: 35px;
 	top: 0px;	
 }
 #sidebar-wrapper {
@@ -297,10 +253,7 @@ table{
 	height: 100%;
 	overflow-y: auto;
 	z-index: 999;
-	box-shadow: 1px 0px 2px #666;
-	-webkit-box-shadow: 1px 0px 2px #666;
-	-moz-box-shadow: 1px 0px 2px #666;
-	border-right: 1px solid #eee;
+	border-right: 1px solid #ccc;
 }
 .judul {
 	height: 30px;
@@ -309,13 +262,8 @@ table{
 	font-size: 12pt;
 	list-style: none;
 	color: #1a1a1a;
-	text-shadow: 0px 1px 1px #fff;
-	background: -webkit-linear-gradient(#dedede,#c9c9c9 );
-	background: -o-linear-gradient(#dedede,#c9c9c9);
-	background: -moz-linear-gradient(#dedede,#c9c9c9);
-	background: linear-gradient(#dedede,#c9c9c9);
-	border-bottom: solid 1px #999999;
-	border-top: solid 1px #999999;
+	background: #ccc;
+	
 }
 .sidebar-nav {
 	position: absolute;
@@ -328,8 +276,6 @@ table{
 .sidebar-nav li {
 	line-height: 35px;
 	text-indent: 10px;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #eee;
 }
 .btn-mrh img{
 	float: left;
@@ -360,12 +306,12 @@ table{
     -moz-transition:all 0.2s ease-in-out;
     -o-transition:all 0.2s ease-in-out;
     transition:all 0.2s ease-in-out;
-	background:#0072e0;
+	background:#2099D6;
 	color: #ffffff;
 	
 }
 .text-pencarian{
-	border: 1px solid #000000;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	background: url(../img/pencarian.png) no-repeat right ;
 	background-color:#fff;
@@ -375,7 +321,7 @@ table{
 	vertical-align:middle;
 }
 .text-pencarian2{
-	border: 1px solid #999;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	background: url(../img/pencarian.png) no-repeat right ;
 	background-color:#fff;
@@ -388,7 +334,8 @@ table{
 }
 
 .lokasi{
-	top:37px;
+	top:35px;
+	left:180px;
 	margin:0px 0px 5px 0px;
 	padding:5px; 
 	height:20px;
@@ -397,13 +344,9 @@ table{
 	position:fixed;
 	width:100%;
 	float:right;
-	text-shadow: 0px 1px 2px #000;
 	z-index:999;
 	
-	background: -webkit-linear-gradient(#545454,#4D4D4D);
-	background: -o-linear-gradient(#545454, #4D4D4D);
-	background: -moz-linear-gradient(#545454,#4D4D4D);
-	background: linear-gradient(#545454,#4D4D4D);
+	background: #1A1A1A;
 }
 .lokasi > label{
 	font-size:12pt;
@@ -444,11 +387,6 @@ table{
 	border:1px solid #ccc;
 	vertical-align: middle;
 	background:#F9F9F9;
-	
-	-webkit-box-shadow: #fff 0px 1px 1px;
-	-moz-box-shadow: #fff 0px 1px 1px;
-	box-shadow: #fff 0px 1px 1px;
-	text-shadow: 0px 1px 1px #fff;		
 }
 .judul-muka{
 	font-size:20px;
@@ -488,7 +426,6 @@ table{
 	background: -moz-linear-gradient(#0072e0,#0040a0);
 	background: linear-gradient(#0072e0,#0040a0);
 	color: #ffffff;
-	text-shadow: 0px 1px 1px #000;
 }
 
 
@@ -533,12 +470,6 @@ iframe {
 	white-space: nowrap; 
 	cursor: pointer;
 	color: #1a1a1a;
-	text-shadow: 0px 1px 1px #fff;
-	-webkit-transition: margin-bottom 0.3s, bottom 0.2s ease-out;
-	-moz-transition: margin-bottom 0.3s, bottom 0.2s ease-out;
-	-o-transition: margin-bottom 0.3s, bottom 0.2s ease-out;
-	-ms-transition: margin-bottom 0.3s, bottom 0.2s ease-out;
-	transition: margin-bottom 0.3s, bottom 0.2s ease-out;
 	border-top: solid 2px #BBBBBB;
 }
 #wrapper-pengguna:hover{
@@ -582,15 +513,15 @@ iframe {
 	 .perbaharui,
 	 .batal,
 	 .hapus,
-	 .cetak,
+	 .cetak, 
 	 .kembali,
 	#wrapper,
 	#sidebar-wrapper
 	 { display: none; }
 	.a{color:#000;}
-	.lokasi{top:3px; left:3px; z-index:0;text-shadow:none; box-shadow:none; position:absolute;color:#000;}
+	.lokasi{top:3px; left:3px; z-index:0; position:absolute;color:#000;}
 	.konten{left:0px;margin:0px; border:1px solid #000;}
 	tr,th,td{vertical-align:top; border-bottom: thin dotted #ccc;border-right:thin solid #000;color:#000;}
 	.alat{border:1px solid #000;}
-	.text{border:1px solid #000;border-radius:0px; box-shadow:none;}
+	.text{border:1px solid #000;border-radius:0px; }
 }

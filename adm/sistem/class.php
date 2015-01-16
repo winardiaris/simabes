@@ -1,7 +1,7 @@
 <?php
 class sistem{
-	function simpan_bengkel($nm_bengkel,$telp1,$telp2,$almt_bengkel){
-		mysql_query("UPDATE pengaturan SET nm_bengkel='$nm_bengkel',telp1='$telp1',telp2='$telp2', almt_bengkel='$almt_bengkel' WHERE id='1' LIMIT 1") or die (mysql_error());
+	function perbaharui_bengkel($id_bengkel,$nm_bengkel,$telp1,$telp2,$almt_bengkel,$tntg_bengkel){
+		mysql_query("UPDATE pengaturan SET nm_bengkel='$nm_bengkel',telp1='$telp1',telp2='$telp2', almt_bengkel='$almt_bengkel', tentang_bengkel='$tntg_bengkel' WHERE id='$id_bengkel' LIMIT 1") or die (mysql_error());
 	}
 	function simpan_logo_bengkel($id,$logo_bengkel){
 		mysql_query("UPDATE pengaturan SET logo_bengkel='$logo_bengkel' WHERE id='$id' LIMIT 1") or die(mysql_error());
@@ -12,8 +12,6 @@ class sistem{
 		$data = mysql_fetch_array($hasil);
 		if($field == 'id')
 			return $data['id'];
-		elseif($field == 'versi_aplikasi')
-			return $data['versi_aplikasi'];
 		elseif($field == 'nm_bengkel')
 			return $data['nm_bengkel'];
 		elseif($field == 'telp1')
@@ -24,6 +22,8 @@ class sistem{
 			return $data['almt_bengkel'];
 		elseif($field == 'logo_bengkel')
 			return $data['logo_bengkel'];
+		elseif($field == 'tentang_bengkel')
+			return $data['tentang_bengkel'];
 	}
 	
 	//pengguna aplikasi

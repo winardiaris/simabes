@@ -4,12 +4,13 @@ $sekarang = date("Y-m-d H:i:s");
 $hari_ini = date("Y-m-d");
 $lokasi  = $_POST['lokasi'];
 
-if(isset($_POST['simpan_bengkel'])){
+if(isset($_POST['perbaharui_bengkel'])){
 	$id = 1;
 	$nm_bengkel=$_POST['nm_bengkel'];
 	$telp1=$_POST['telp1'];
 	$telp2=$_POST['telp2'];
 	$almt_bengkel=$_POST['almt_bengkel'];
+	$tntg_bengkel=$_POST['tntg_bengkel'];
 	
 	if(empty($nm_bengkel)){echo "<script type='text/javascript'> alert('Isikan Nama Bengkel !');history.back();</script>";}
 	elseif(empty($telp1) && empty($telp2)){echo "<script type='text/javascript'> alert('Isikan No Telepon !');history.back();</script>";}
@@ -36,7 +37,7 @@ if(isset($_POST['simpan_bengkel'])){
 			else{echo "<script type='text/javascript'> alert('jenis Gambar yang anda kirim salah. Harus .jpg .gif .png');history.back();</script>";return false;}
 		}
 	
-		$sis->simpan_bengkel($nm_bengkel,$telp1,$telp2,$almt_bengkel);
+		$sis->perbaharui_bengkel($id,$nm_bengkel,$telp1,$telp2,$almt_bengkel,$tntg_bengkel);
 		echo "<script type='text/javascript'> alert('Pengaturan bengkel berhasil disimpan');window.location='?mod=utama';</script>";	
 		
 		//log

@@ -1,0 +1,106 @@
+body{
+	background: url('../img/bg.png') repeat;
+	line-height: 1.5em;
+	color: #444;
+	font-family: 'OpenSans-Light';
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+}
+.search{
+	margin-top:10px;
+	height:auto;
+	padding:0;
+}
+.sm{
+	margin:10px auto 30px auto;
+	background:#fff;
+	border-radius:3px;
+	box-shadow:0 0px 2px rgba(0,0,0,0.4);
+	text-align:center;
+	padding:5px auto 5px auto;
+}
+.sm li{
+	
+}
+.sm li a{
+	padding:5px;
+}
+.ct-item{
+	background:#fff;
+	border:1px solid #BFBFBF;
+	-webkit-transform:scale(0.95);
+	-moz-transform:scale(0.95);
+	-o-transform:scale(0.95);
+	-ms-transform:scale(0.95);
+	transform:scale(0.95);
+}
+.ct-item:hover{
+	-webkit-transform:scale(0.98);
+	-moz-transform:scale(0.98);
+	-o-transform:scale(0.98);
+	-ms-transform:scale(0.98);
+	transform:scale(0.98);
+}
+.ct-item-name{
+	text-align:center;
+	font-size:14pt;
+	padding:5px 0 5px 0;
+}
+.ct-item-desc{
+	font-size:10pt;
+	padding-left:15px;
+}
+.ct-item-stok{
+	text-align:right;
+}
+.top-item{
+	margin-bottom:10px;
+}
+.footer{
+	margin-top:20px;
+	background:#4D4D4D;
+	color:#fff;
+	padding:10px;
+
+}
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+	color: #1A1A1A;  /*Sets the text hover color on navbar*/
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #1A1A1A; /*BACKGROUND color for active*/
+	background-color: #FFF;
+}
+.navbar-default {
+	background-color: #2099D6;
+	border-color: #7ABADB;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+	color: #262626;
+	text-decoration: none;
+	background-color: #66CCFF;  /*change color of links in drop down here*/
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+	text-decoration: none;
+	background-color: silver; /*Change rollover cell color here*/
+}
+.navbar-default .navbar-nav > li > a {
+	color: white; /*Change active text color here*/
+}
+.navbar-header .navbar-brand,
+.navbar-header .navbar-text{
+	color:#fff;
+}
+.navbar-header .navbar-brand:hover,
+.navbar-header .navbar-text:hover{
+	color:#1a1a1a;
+}
+.smp{
+	background:#fff;
+}

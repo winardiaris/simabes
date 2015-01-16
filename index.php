@@ -1,30 +1,29 @@
 <?php
 include "inc/koneksi.php";
 include "inc/konf.php";
-include ("utama/header.php");
+include ("katalog/header.php");
 
 $mod = $_GET['mod'];	
 	switch($mod){
-		case "katalog" :
-		$view = "utama/katalog.php";
+		case "catalog" :
+		$view = "katalog/katalog.php";
 		break;
 		case "info" :
-		$view = "utama/info.php";
+		$view = "katalog/info.php";
 		break;
-		case "bantuan" :
-		$view = "utama/bantuan.php";
+		case "help" :
+		$view = "katalog/bantuan.php";
 		break;
-		case "pengguna" :
-		$view = "utama/pengguna.php";
+		case "user" :
+		$view = "katalog/pengguna.php";
 		break;
-		case "tentang" :
-		$view = "utama/tentang.php";
+		case "about" :
+		$view = "katalog/tentang.php";
 		break;
 }
 		include $view;
-
-if(empty($_GET['mod'])){
-	header("location:?mod=katalog");
+if(empty($mod)){
+	include ("katalog/katalog.php");
 }
-include ("utama/footer.php");
+include ("katalog/footer.php");
 ?>
