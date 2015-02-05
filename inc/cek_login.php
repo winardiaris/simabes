@@ -15,8 +15,6 @@ else{
 			echo "<script>alert('Sesi anda telah habis. Silahkan masuk kembali !',document.location.href='../login.php')</script>";
 			//header('location:http://localhost/simabes/inc/session.php');
 		}
-		
-
 }
 ?>
 
